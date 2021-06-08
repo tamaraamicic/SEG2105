@@ -57,15 +57,50 @@
         android:id="@+id/roleDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginRight="260dp"
         android:text="Role: "
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="17dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="300dp"
+        android:layout_marginRight="300dp"
         android:text="User Name:"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roleDisplay" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginRight="260dp"
+        app:layout_constraintBottom_toTopOf="@+id/usernameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/roleDisplay"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginRight="260dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
