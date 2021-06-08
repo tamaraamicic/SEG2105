@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/createCourseButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Create Courses"
+        app:layout_constraintBottom_toTopOf="@+id/editCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/editCourseButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Edit   Courses"
+        app:layout_constraintBottom_toTopOf="@+id/deleteCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createCourseButton" />
+
+    <Button
+        android:id="@+id/deleteCourseButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Delete Courses"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCourseButton" />
+
+    <Button
         android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Delete Accounts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteCourseButton" />
+
+    <TextView
+        android:id="@+id/roleDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:text="Role: "
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="17dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name:"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="36dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
