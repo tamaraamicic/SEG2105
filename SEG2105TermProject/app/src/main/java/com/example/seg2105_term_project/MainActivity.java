@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
                     VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
+                    if(verifyLogin.verified()){
+
+                    }
                 }
             }
         });

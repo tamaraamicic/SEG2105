@@ -10,4 +10,8 @@ public class VerifyLogin {
         this.password = password;
     }
 
+    public boolean verified(){
+        return false;
+    }
+
 }
