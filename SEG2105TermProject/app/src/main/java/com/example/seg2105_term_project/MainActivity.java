@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginButton = (Button)(findViewById(R.id.signInButton));
-        registerButton = (Button)(findViewById(R.id.registerButton));
+        registerButton = (Button)(findViewById(R.id.registerInstructorButton));
         userNameEditText = (EditText) (findViewById(R.id.username));
         passwordEditText = (EditText) (findViewById(R.id.password));
         MyDBHandler myDBHandler = new MyDBHandler(this);
