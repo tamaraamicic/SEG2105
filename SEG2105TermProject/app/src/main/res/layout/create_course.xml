@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNameForCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Course name (e.g. History)" />
@@ -38,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputCodeForCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Course code (e.g. HIS101)" />
