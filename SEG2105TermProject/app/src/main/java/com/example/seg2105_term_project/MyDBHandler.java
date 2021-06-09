@@ -11,7 +11,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     //defining the schema
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "productDB.db";
-    private static final String TABLE_PRODUCTS = "loginInfo's'";
+    private static final String TABLE_PRODUCTS = "products";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PRODUCTNAME = "productname";
     private static final String COLUMN_PRICE = "price";
@@ -42,13 +42,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     // insert into database
-    public void addProduct(Product product) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void addProduct(User user) {
+        SQLiteDatabase db =this.getWritableDatabase();
 
         // creating a new map of values where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCTNAME, product.getProductName());
-        values.put(COLUMN_PRICE, product.getPrice());
+        values.put(COLUMN_PRODUCTNAME, user.getUsername());
+        values.put(COLUMN_PRICE, user.getPassword());
 
         // insert into table and close
         db.insert(TABLE_PRODUCTS, null, values);
@@ -56,7 +56,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     // read from database
-    public Product findProduct(String productname) {
+    public User findProduct(String productname) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //run a query to find the product
@@ -66,11 +66,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
 
         // create an object and get the result
-        Product product = new Product();
+        User product = new User();
         if (cursor.moveToFirst()) {
             product.setID(Integer.parseInt(cursor.getString(0)));
-            product.setProductName(cursor.getString(1));
-            product.setPrice(Double.parseDouble(cursor.getString(2)));
+            product.setUsername(cursor.getString(1));
+            product.setPassword(cursor.getString(2));
             cursor.close();
         } else {
             product = null;
@@ -99,11 +99,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public Cursor viewData() {
+    public Cursor viewData(){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor;
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_PRODUCTS, null);
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_PRODUCTS,null);
         return cursor;
     }
 }

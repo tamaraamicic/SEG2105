@@ -1,6 +1,10 @@
 package com.example.seg2105_term_project;
 
-public class VerifyLogin {
+import android.content.Context;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class VerifyLogin extends AppCompatActivity {
 
     String user;
     String password;
@@ -10,8 +14,12 @@ public class VerifyLogin {
         this.password = password;
     }
 
-    public boolean verified(){
-        return false;
+    public boolean verified(MyDBHandler myDBHandler){
+        if(myDBHandler.findProduct(this.user)!=null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
