@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Delete student account"
         tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="187dp" />
+        tools:layout_editor_absoluteY="162dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
@@ -45,6 +45,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete instructor account"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="451dp" />
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="421dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
