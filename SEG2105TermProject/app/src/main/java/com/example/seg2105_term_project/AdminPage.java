@@ -33,6 +33,30 @@ public class AdminPage extends AppCompatActivity {
         nameDisplay.setText(CurrentUser.getUsername());
         roleDisplay.setText(CurrentUser.getRole());
 
+        createCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateCourse.class);
+                startActivity(intent);
+            }
+        });
+
+        editCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EditCourse.class);
+                startActivity(intent);
+            }
+        });
+
+        deleteCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DeleteCourse.class);
+                startActivity(intent);
+            }
+        });
+
         deleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
