@@ -16,7 +16,7 @@ public class DeleteCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.delete_course);
 
         inputNameForDelete = (TextInputEditText) (findViewById(R.id.inputNameForDelete));
         inputCodeForDelete = (TextInputEditText) (findViewById(R.id.inputCodeForDelete));
