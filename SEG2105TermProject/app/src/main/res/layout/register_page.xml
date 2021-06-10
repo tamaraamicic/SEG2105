@@ -48,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -64,23 +65,41 @@
         android:id="@+id/button2"
         android:layout_width="125dp"
         android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Register Student"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="125dp"
         android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Register Admin"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="130dp"
         android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Register Instructor"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
