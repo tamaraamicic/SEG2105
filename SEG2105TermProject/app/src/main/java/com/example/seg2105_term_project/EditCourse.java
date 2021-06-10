@@ -18,7 +18,7 @@ public class EditCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.edit_course);
 
         inputNameForEdit = (TextInputEditText) (findViewById(R.id.inputNameForEdit));
         inputCodeForEdit = (TextInputEditText) (findViewById(R.id.inputCodeForEdit));
