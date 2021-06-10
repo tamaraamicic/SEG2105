@@ -33,7 +33,12 @@ public class DeleteAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!deleteAccountInput.getText().toString().equals("")){
-                    if(myDBHandler.deleteProduct(deleteAccountInput.getText().toString())){
+                    if(myDBHandler.findProduct(deleteAccountInput.getText().toString()).getUsername().equals(CurrentUser.getUsername())){
+                        Toast toast = Toast.makeText(getApplicationContext(), "Cannot delete current account!", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                        toast.show();
+                        deleteAccountInput.setText("");
+                    }
+                    else if(myDBHandler.deleteProduct(deleteAccountInput.getText().toString())){
 
                         display();
                         deleteAccountInput.setText("");

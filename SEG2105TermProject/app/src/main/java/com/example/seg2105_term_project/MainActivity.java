@@ -12,9 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button loginButton;
-    Button registerAdminButton;
-    Button registerInstructorButton;
-    Button registerStudentButton;
+    Button registerButton;
     EditText userNameEditText;
     EditText passwordEditText;
 
@@ -26,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginButton = (Button)(findViewById(R.id.signInButton));
-        registerAdminButton = (Button)(findViewById(R.id.registerAdminButton));
-        registerInstructorButton = (Button)(findViewById(R.id.registerInstructorButton));
-        registerStudentButton = (Button)(findViewById(R.id.registerStudentButton));
+        registerButton = (Button)(findViewById(R.id.registerButton));
         userNameEditText = (EditText) (findViewById(R.id.username));
         passwordEditText = (EditText) (findViewById(R.id.password));
         MyDBHandler myDBHandler = new MyDBHandler(this);
@@ -72,54 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        registerAdminButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
-                    VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
 
-                    if(verifyLogin.verified(myDBHandler)){
-                        Toast toast = Toast.makeText(getApplicationContext(), "Username already exists\nPlease use login Button", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
-                        toast.show();
-                    }else{
-                        User user = new User(userNameEditText.getText().toString(),passwordEditText.getText().toString());
-                        user.setRole("admin");
-                        myDBHandler.addProduct(user);
-                    }
-                }
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterUser.class);
+                startActivity(intent);
             }
         });
-        registerInstructorButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
-                    VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
 
-                    if(verifyLogin.verified(myDBHandler)){
-                        Toast toast = Toast.makeText(getApplicationContext(), "Username already exists\nPlease use login Button", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
-                        toast.show();
-                    }else{
-                        User user = new User(userNameEditText.getText().toString(),passwordEditText.getText().toString());
-                        user.setRole("instructor");
-                        myDBHandler.addProduct(user);
-                    }
-                }
-            }
-        });
-        registerStudentButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
-                    VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
-
-                    if(verifyLogin.verified(myDBHandler)){
-                        Toast toast = Toast.makeText(getApplicationContext(), "Username already exists\nPlease use login Button", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
-                        toast.show();
-                    }else{
-                        User user = new User(userNameEditText.getText().toString(),passwordEditText.getText().toString());
-                        user.setRole("student");
-                        myDBHandler.addProduct(user);
-                    }
-                }
-            }
-        });
 
 
     }
