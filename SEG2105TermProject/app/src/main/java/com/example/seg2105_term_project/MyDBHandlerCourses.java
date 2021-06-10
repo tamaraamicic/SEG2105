@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class MyDBHandlerCourses extends SQLiteOpenHelper {
     //defining the schema
@@ -58,24 +59,30 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
     public Course findCourse(String courseName, String courseCode) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        //run a query to find the product
-        // SELECT * FROM TABLE_PRODUCTS WHERE COLUMN_COURSENAME = coursename
-        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME +
-                " = \"" + courseName + "\"";
-        Cursor cursor = db.rawQuery(query, null);
-
-        // create an object and get the result
-        Course course = new Course(courseName, courseCode);
-        if (cursor.moveToFirst()) {
-            course.setID(Integer.parseInt(cursor.getString(0)));
-            course.setCourseName(cursor.getString(1));
-            course.setCourseCode(cursor.getString(2));
-            cursor.close();
+        if (courseName.equals("") || courseCode.equals("")) {
+            return null;
         } else {
-            course = null;
+            String query;
+
+            if (courseCode.equals("") && !courseName.equals("")) {
+                query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME + " = \"" + courseName + "\"";
+            } else {
+                query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_CODE + " = \"" + courseCode + "\"";
+            }
+
+            Cursor cursor = db.rawQuery(query, null);
+            Course course = new Course(courseName, courseCode);
+            if (cursor.moveToFirst()) {
+                course.setID(Integer.parseInt(cursor.getString(0)));
+                course.setCourseName(cursor.getString(1));
+                course.setCourseCode(cursor.getString(2));
+                cursor.close();
+            } else {
+                course = null;
+            }
+            db.close();
+            return course;
         }
-        db.close();
-        return course;
     }
 
     // delete from database
