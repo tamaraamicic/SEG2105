@@ -59,14 +59,14 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
     public Course findCourse(String courseName, String courseCode) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        if (courseName.equals("") || courseCode.equals("")) {
+        if (courseName.equals("") && courseCode.equals("")) {
             return null;
         } else {
             String query;
 
             if (courseCode.equals("") && !courseName.equals("")) {
                 query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME + " = \"" + courseName + "\"";
-            } else {
+            } else{
                 query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_CODE + " = \"" + courseCode + "\"";
             }
 

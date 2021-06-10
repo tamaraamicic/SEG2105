@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         }
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                if(userNameEditText.getText().toString().equals("") || passwordEditText.getText().toString().equals("")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please make sure all fields contain information", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
+                }
                 if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
                     VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
 
