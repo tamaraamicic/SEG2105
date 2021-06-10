@@ -2,6 +2,7 @@ package com.example.seg2105_term_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,15 +32,39 @@ public class MainActivity extends AppCompatActivity {
         userNameEditText = (EditText) (findViewById(R.id.username));
         passwordEditText = (EditText) (findViewById(R.id.password));
         MyDBHandler myDBHandler = new MyDBHandler(this);
-        User user = new User("admin","admin123");
-        myDBHandler.addProduct(user);
+        User user = new User("administrator","admin123");
+        user.setRole("admin");
+        if(myDBHandler.findProduct(user.getUsername())==null){
+            myDBHandler.addProduct(user);
+        }
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(!userNameEditText.getText().toString().equals("") && !passwordEditText.getText().toString().equals("")){
                     VerifyLogin verifyLogin = new VerifyLogin(userNameEditText.getText().toString(),passwordEditText.getText().toString());
 
                     if(verifyLogin.verified(myDBHandler)){
-
+                        if(verifyLogin.roleNumber(myDBHandler) == 0){
+                            CurrentUser.setUsername(userNameEditText.getText().toString());
+                            CurrentUser.setPassword(passwordEditText.getText().toString());
+                            CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
+                            Intent intent = new Intent(getApplicationContext(),AdminPage.class);
+                            startActivity(intent);
+                        }else if(verifyLogin.roleNumber(myDBHandler) == 1){
+                            CurrentUser.setUsername(userNameEditText.getText().toString());
+                            CurrentUser.setPassword(passwordEditText.getText().toString());
+                            CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
+                            Intent intent = new Intent(getApplicationContext(),InstructorPage.class);
+                            startActivity(intent);
+                        }else if(verifyLogin.roleNumber(myDBHandler) == 2) {
+                            CurrentUser.setUsername(userNameEditText.getText().toString());
+                            CurrentUser.setPassword(passwordEditText.getText().toString());
+                            CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
+                            Intent intent = new Intent(getApplicationContext(), StudentPage.class);
+                            startActivity(intent);
+                        }else if(verifyLogin.roleNumber(myDBHandler) == -1){
+                            Toast toast = Toast.makeText(getApplicationContext(), "AN ERROR OCCURED", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                            toast.show();
+                        }
                     }else{
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Info\nPlease use Register Button", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                         toast.show();

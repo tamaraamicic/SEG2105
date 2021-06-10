@@ -15,7 +15,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PRODUCTNAME = "productname";
     private static final String COLUMN_PRICE = "price";
-    private static final String TABLE_NAME = "store";
+    private static final String COLUMN_ROLE = "role";
 
     //constructor
     public MyDBHandler(Context context) {
@@ -27,9 +27,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //CREATE TABLE TABLE_PRODUCTS (COLUMN_ID INTEGER PRIMARY KEY, COLUMN_PRODUCTNAME TEXT,
         // COLUMN_PRICE DOUBLE)
-        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_PRODUCTS + "(" + COLUMN_ID +
-                " INTEGER PRIMARY KEY, " + COLUMN_PRODUCTNAME + " TEXT, " + COLUMN_PRICE + " DOUBLE"
-                + ")";
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_PRODUCTS +
+                "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_PRODUCTNAME + " TEXT, " +
+                COLUMN_PRICE + " TEXT, " +
+                COLUMN_ROLE + " TEXT" + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
@@ -49,6 +51,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_PRODUCTNAME, user.getUsername());
         values.put(COLUMN_PRICE, user.getPassword());
+        values.put(COLUMN_ROLE, user.getRole());
 
         // insert into table and close
         db.insert(TABLE_PRODUCTS, null, values);
@@ -56,13 +59,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     // read from database
-    public User findProduct(String productname) {
+    public User findProduct(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //run a query to find the product
         // SELECT * FROM TABLE_PRODUCTS WHERE COLUMN_PRODUCTNAME = productname
         String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME +
-                " = \"" + productname + "\"";
+                " = \"" + username + "\"";
         Cursor cursor = db.rawQuery(query, null);
 
         // create an object and get the result
@@ -71,6 +74,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             product.setID(Integer.parseInt(cursor.getString(0)));
             product.setUsername(cursor.getString(1));
             product.setPassword(cursor.getString(2));
+            product.setRole(cursor.getString(3));
             cursor.close();
         } else {
             product = null;

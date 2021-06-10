@@ -36,13 +36,13 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:text="Delete Courses"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCourseButton" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/deleteAccountButton"
         android:layout_width="150dp"
         android:layout_height="75dp"
         android:layout_marginTop="32dp"
@@ -54,53 +54,52 @@
         app:layout_constraintTop_toBottomOf="@+id/deleteCourseButton" />
 
     <TextView
-        android:id="@+id/roleDisplay"
+        android:id="@+id/role"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="260dp"
         android:layout_marginRight="260dp"
         android:text="Role: "
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="300dp"
         android:layout_marginRight="300dp"
         android:text="User Name:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/role" />
+
+    <TextView
+        android:id="@+id/nameDisplay"
+        android:layout_width="197dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/roleDisplay" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:id="@+id/roleDisplay"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginRight="260dp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameText"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/roleDisplay"
+        app:layout_constraintStart_toEndOf="@+id/role"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/usernameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginRight="260dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
