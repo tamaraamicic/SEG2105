@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), StudentPage.class);
                             startActivity(intent);
                         }else if(verifyLogin.roleNumber(myDBHandler) == -1){
-                            Toast toast = Toast.makeText(getApplicationContext(), "AN ERROR OCCURED", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                            Toast toast = Toast.makeText(getApplicationContext(), "AN ERROR OCCURRED", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                             toast.show();
                         }
                     }else{

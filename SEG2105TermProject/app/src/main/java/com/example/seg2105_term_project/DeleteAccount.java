@@ -26,21 +26,21 @@ public class DeleteAccount extends AppCompatActivity {
          wholeView = findViewById(R.id.wholeView);
          deleteAccountInput =  findViewById(R.id.deleteAccountInput);
          confirmDeleteAccountButton =  findViewById(R.id.confirmDeleteAccountButton);
-         cursor = myDBHandler.viewData();
 
-        stringBuilder = new StringBuilder("No Data To Show");
-        display(stringBuilder);
+
+        display();
         confirmDeleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!deleteAccountInput.getText().toString().equals("")){
                     if(myDBHandler.deleteProduct(deleteAccountInput.getText().toString())){
 
-                        display(stringBuilder);
-
+                        display();
+                        deleteAccountInput.setText("");
                         Toast toast = Toast.makeText(getApplicationContext(), "Account Successfully Deleted", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                         toast.show();
                     }else{
+                        deleteAccountInput.setText("");
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Account Name", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                         toast.show();
                     }
@@ -49,15 +49,13 @@ public class DeleteAccount extends AppCompatActivity {
         });
     }
 
-    public void display(StringBuilder stringBuilder){
-
-        cursor.moveToFirst();
-        if(!cursor.moveToNext()){
-            stringBuilder = new StringBuilder("No Data To Show");
-        }
+    public void display(){
+        stringBuilder = new StringBuilder();
+        cursor = myDBHandler.viewData();
+        boolean flag = false;
         while (cursor.moveToNext()) {
 
-
+            flag = true;
             int index = stringBuilder.indexOf("No Data To Show");
             if (index!=-1){
                 stringBuilder.delete(0,"No Data To Show".length());
@@ -66,13 +64,9 @@ public class DeleteAccount extends AppCompatActivity {
             stringBuilder.append("\n");
         }
 
-
+        if(!flag){
+            stringBuilder.append("No Data To Show");
+        }
         wholeView.setText(stringBuilder);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        display(stringBuilder);
     }
 }

@@ -1,8 +1,4 @@
 package com.example.seg2105_term_project;
-
-import android.content.Context;
-import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class VerifyLogin extends AppCompatActivity {

@@ -54,6 +54,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreateCourse"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATECOURSE" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EditCourse"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.EDITCOURSE" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DeleteCourse"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.DELETECOURSE" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
