@@ -6,18 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/createCourseButton"
-        android:layout_width="150dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Create\nCourses"
-        app:layout_constraintBottom_toTopOf="@+id/editCourseButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/editCourseButton"
         android:layout_width="150dp"
         android:layout_height="75dp"
@@ -54,28 +42,32 @@
         app:layout_constraintTop_toBottomOf="@+id/deleteCourseButton" />
 
     <TextView
+        android:id="@+id/roleDisplay"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toEndOf="@+id/role"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/role"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="260dp"
         android:layout_marginRight="260dp"
         android:text="Role: "
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="300dp"
-        android:layout_marginRight="300dp"
-        android:text="User Name:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/role" />
 
     <TextView
         android:id="@+id/nameDisplay"
@@ -86,20 +78,31 @@
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/roleDisplay" />
 
     <TextView
-        android:id="@+id/roleDisplay"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="300dp"
+        android:layout_marginRight="300dp"
+        android:text="User Name:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/role"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/role" />
+
+    <Button
+        android:id="@+id/createCourseButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Create\nCourses"
+        app:layout_constraintBottom_toTopOf="@+id/editCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
