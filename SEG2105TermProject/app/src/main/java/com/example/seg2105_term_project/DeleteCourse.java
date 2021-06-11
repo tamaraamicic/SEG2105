@@ -23,7 +23,7 @@ public class DeleteCourse extends AppCompatActivity {
         inputNameForDelete = (TextInputEditText) (findViewById(R.id.inputNameForDelete));
         inputCodeForDelete = (TextInputEditText) (findViewById(R.id.inputCodeForDelete));
         deleteButtonForDelete = (Button)(findViewById(R.id.deleteButtonForDelete));
-        deleteButtonForDelete.setClickable(false);
+        deleteButtonForDelete.setEnabled(false);
         findButtonForDelete = (Button)(findViewById(R.id.findButtonForDelete));
         MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
 
@@ -35,7 +35,7 @@ public class DeleteCourse extends AppCompatActivity {
                 if (course != null) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course found! Press \'DELETE COURSE\'", Toast.LENGTH_LONG);
                     toast.show();
-                    deleteButtonForDelete.setClickable(true);
+                    deleteButtonForDelete.setEnabled(true);
                     if (code.equals("")) {
                         inputCodeForDelete.setText(course.getCourseCode());
                     } else if (name.equals("")) {
@@ -52,9 +52,17 @@ public class DeleteCourse extends AppCompatActivity {
             public void onClick(View view) {
                 String name = inputNameForDelete.getText().toString();
                 String code = inputCodeForDelete.getText().toString();
-                handlerCourses.deleteCourse(name, code);
-                Toast toast = Toast.makeText(getApplicationContext(), "Course successfully deleted.", Toast.LENGTH_LONG);
-                toast.show();
+                if(handlerCourses.deleteCourse(name, code)) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Course successfully deleted.", Toast.LENGTH_LONG);
+                    toast.show();
+                    inputCodeForDelete.setText("");
+                    inputNameForDelete.setText("");
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Course could not be deleted.", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+                deleteButtonForDelete.setEnabled(false);
+
             }
         });
 

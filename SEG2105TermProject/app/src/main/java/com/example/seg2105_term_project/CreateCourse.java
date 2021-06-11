@@ -29,9 +29,11 @@ public class CreateCourse extends AppCompatActivity {
                 String name = inputNameForCreate.getText().toString();
                 String code = inputCodeForCreate.getText().toString();
                 if (!name.equals("") && !code.equals("")) {
-                    if (handlerCourses.findCourse(name, code).equals(null)) {
+                    if (handlerCourses.findCourse(name, code) == null) {
                         Course course = new Course(name, code);
                         handlerCourses.addCourse(course);
+                        Toast toast = Toast.makeText(getApplicationContext(), "COURSE HAS BEEN CREATED", Toast.LENGTH_LONG);
+                        toast.show();
                     } else {
                         Toast toast = Toast.makeText(getApplicationContext(), "COURSE WITH SAME CODE ALREADY EXISTS", Toast.LENGTH_LONG);
                         toast.show();
