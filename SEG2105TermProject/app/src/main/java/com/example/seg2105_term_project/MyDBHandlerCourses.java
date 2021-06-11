@@ -86,23 +86,44 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
     }
 
     // delete from database
-    public boolean deleteCourse(String coursename) {
+    public boolean deleteCourse(String courseName, String courseCode) {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
 
+        if (!courseName.equals("") || !courseCode.equals("")) {
+            String query;
+
+            if (courseCode.equals("") && !courseName.equals("")) {
+                query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME + " = \"" + courseName + "\"";
+            } else{
+                query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_CODE + " = \"" + courseCode + "\"";
+            }
+
+            Cursor cursor = db.rawQuery(query, null);
+
+            if (cursor.moveToFirst()) {
+                String idStr = cursor.getString(0);
+                db.delete(TABLE_COURSES, COLUMN_ID + " = " + idStr, null);
+                cursor.close();
+                result = true;
+            }
+            db.close();
+        }
+        return result;
+
         // run a query to find the product then delete
         // SELECT * FROM TABLE_PRODUCTS WHERE COLUMN_PRODUCTNAME = productname
-        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME + " = \""
-                + coursename + "\"";
-        Cursor cursor = db.rawQuery(query, null);
-        if (cursor.moveToFirst()) {
-            String idStr = cursor.getString(0);
-            db.delete(TABLE_COURSES, COLUMN_ID + " = " + idStr, null);
-            cursor.close();
-            result = true;
-        }
-        db.close();
-        return result;
+//        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSENAME + " = \""
+//                + courseName + "\"";
+//        Cursor cursor = db.rawQuery(query, null);
+//        if (cursor.moveToFirst()) {
+//            String idStr = cursor.getString(0);
+//            db.delete(TABLE_COURSES, COLUMN_ID + " = " + idStr, null);
+//            cursor.close();
+//            result = true;
+//        }
+//        db.close();
+//        return result;
     }
 
     public Cursor viewData(){
