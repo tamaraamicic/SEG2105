@@ -32,7 +32,7 @@ public class DeleteCourse extends AppCompatActivity {
                 String name = inputNameForDelete.getText().toString();
                 String code = inputCodeForDelete.getText().toString();
                 Course course = handlerCourses.findCourse(name, code);
-                if (!course.equals(null)) {
+                if (course != null) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course found! Press \'DELETE COURSE\'", Toast.LENGTH_LONG);
                     toast.show();
                     deleteButtonForDelete.setClickable(true);
