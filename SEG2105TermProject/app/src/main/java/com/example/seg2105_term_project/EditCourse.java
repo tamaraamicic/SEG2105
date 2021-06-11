@@ -26,7 +26,7 @@ public class EditCourse extends AppCompatActivity {
         inputCodeForEdit = (TextInputEditText) (findViewById(R.id.inputCodeForEdit));
         findCourseButtonForEdit = (Button)(findViewById(R.id.findCourseButtonForEdit));
         saveChangesButtonForEdit = (Button)(findViewById(R.id.saveChangesButtonForEdit));
-        saveChangesButtonForEdit.setClickable(false);
+        saveChangesButtonForEdit.setEnabled(false);
         inputNewNameForEdit = (TextInputEditText) (findViewById(R.id.inputNewNameForEdit));
         inputNewCodeForEdit = (TextInputEditText) (findViewById(R.id.inputNewCodeForEdit));
         MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
@@ -37,9 +37,9 @@ public class EditCourse extends AppCompatActivity {
                 String code = inputCodeForEdit.getText().toString();
                 Course course = handlerCourses.findCourse(name, code);
                 if (!course.equals(null)) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Course found! Press \'DELETE COURSE\'", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Course found!", Toast.LENGTH_LONG);
                     toast.show();
-                    saveChangesButtonForEdit.setClickable(true);
+                    saveChangesButtonForEdit.setEnabled(true);
                     if (code.equals("")) {
                         inputCodeForEdit.setText(course.getCourseCode());
                     } else if (name.equals("")) {
@@ -64,6 +64,9 @@ public class EditCourse extends AppCompatActivity {
                 Course courseToAdd = new Course(newName, newCode);
 
                 handlerCourses.addCourse(courseToAdd);
+                saveChangesButtonForEdit.setEnabled(false);
+                Toast toast = Toast.makeText(getApplicationContext(), "Course has been edited", Toast.LENGTH_LONG);
+                toast.show();
 
             }
         });
