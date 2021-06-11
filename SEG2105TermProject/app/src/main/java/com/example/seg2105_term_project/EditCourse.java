@@ -56,14 +56,26 @@ public class EditCourse extends AppCompatActivity {
             public void onClick(View view) {
                 String name = inputNameForEdit.getText().toString();
                 String code = inputCodeForEdit.getText().toString();
-                handlerCourses.deleteCourse(name, code);
 
+                Course courseToAdd;
                 String newName = inputNewNameForEdit.getText().toString();
                 String newCode = inputNewCodeForEdit.getText().toString();
+                if(!newName.equals("") && !newCode.equals("")){
+                    if(handlerCourses.findCourse(newName,newCode) == null){
+                        handlerCourses.deleteCourse(name, code);
+                        courseToAdd = new Course(newName, newCode);
+                        handlerCourses.addCourse(courseToAdd);
+                    }else{
+                        Toast toast = Toast.makeText(getApplicationContext(), "This course already exists", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please make sure all fields have input", Toast.LENGTH_LONG);
+                    toast.show();
+                }
 
-                Course courseToAdd = new Course(newName, newCode);
 
-                handlerCourses.addCourse(courseToAdd);
+
                 saveChangesButtonForEdit.setEnabled(false);
                 Toast toast = Toast.makeText(getApplicationContext(), "Course has been edited", Toast.LENGTH_LONG);
                 toast.show();
