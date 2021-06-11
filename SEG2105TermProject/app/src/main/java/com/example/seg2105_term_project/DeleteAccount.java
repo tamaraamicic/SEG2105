@@ -49,6 +49,9 @@ public class DeleteAccount extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Account Name", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                         toast.show();
                     }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter account name", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
                 }
             }
         });

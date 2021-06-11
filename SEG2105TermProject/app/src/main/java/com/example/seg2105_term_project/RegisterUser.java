@@ -50,6 +50,9 @@ public class RegisterUser extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please make sure all fields have input", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
                 }
             }
         });
@@ -70,6 +73,9 @@ public class RegisterUser extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please make sure all fields have input", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
                 }
             }
 
@@ -91,6 +97,9 @@ public class RegisterUser extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please make sure all fields have input", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
+                    toast.show();
                 }
             }
         });
