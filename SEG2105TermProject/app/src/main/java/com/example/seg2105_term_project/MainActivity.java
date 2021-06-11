@@ -47,24 +47,17 @@ public class MainActivity extends AppCompatActivity {
                             CurrentUser.setUsername(userNameEditText.getText().toString());
                             CurrentUser.setPassword(passwordEditText.getText().toString());
                             CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
-                            Intent intent = new Intent(getApplicationContext(),AdminPage.class);
-                            startActivity(intent);
                         }else if(verifyLogin.roleNumber(myDBHandler) == 1){
                             CurrentUser.setUsername(userNameEditText.getText().toString());
                             CurrentUser.setPassword(passwordEditText.getText().toString());
                             CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
-                            Intent intent = new Intent(getApplicationContext(),InstructorPage.class);
-                            startActivity(intent);
                         }else if(verifyLogin.roleNumber(myDBHandler) == 2) {
                             CurrentUser.setUsername(userNameEditText.getText().toString());
                             CurrentUser.setPassword(passwordEditText.getText().toString());
                             CurrentUser.setRole(verifyLogin.getRoleName(myDBHandler));
-                            Intent intent = new Intent(getApplicationContext(), StudentPage.class);
-                            startActivity(intent);
-                        }else if(verifyLogin.roleNumber(myDBHandler) == -1){
-                            Toast toast = Toast.makeText(getApplicationContext(), "AN ERROR OCCURRED", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
-                            toast.show();
                         }
+                        Intent intent = new Intent(getApplicationContext(), WelcomePage.class);
+                        startActivity(intent);
                     }else{
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid Info\nPlease use Register Button", Toast.LENGTH_LONG); // initiate the Toast with context, message and duration for the Toast
                         toast.show();
