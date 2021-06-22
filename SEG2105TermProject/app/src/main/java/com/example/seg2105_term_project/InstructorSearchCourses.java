@@ -56,7 +56,7 @@ public class InstructorSearchCourses extends AppCompatActivity {
             }
         });
 
-        searchButtonForSearch.setOnClickListener(new View.OnClickListener() {
+        assignButtonForSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AssignCourse.class);
                 startActivity(intent);
