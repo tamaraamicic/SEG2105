@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -41,12 +42,17 @@ public class InstructorSearchCourses extends AppCompatActivity {
                         inputNameForSearch.setText(course.getCourseName());
                     }
                     if (course.getInstructor() != null) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "This course is already taught by " + course.getInstructor()
-                                + ", therefore you may not assign yourself to it.", Toast.LENGTH_LONG);
-                        toast.show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorSearchCourses.this);
+                        builder.setMessage("This course is already taught by " + course.getInstructor()
+                                + ", therefore you may not assign yourself to it.").setTitle("Notice");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "This course is open! You may assign yourself to it.", Toast.LENGTH_LONG);
-                        toast.show();
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorSearchCourses.this);
+                        builder.setMessage("This course is open! You may assign yourself to it").setTitle("Notice");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                         assignButtonForSearch.setEnabled(true);
                     }
                 } else {
