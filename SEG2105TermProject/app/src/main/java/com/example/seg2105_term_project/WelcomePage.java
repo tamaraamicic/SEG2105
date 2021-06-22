@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomePage extends AppCompatActivity {
@@ -19,8 +21,12 @@ public class WelcomePage extends AppCompatActivity {
         welcomeMessage.setText("Welcome "+CurrentUser.getUsername()+", your role is "+ CurrentUser.getRole());
 
         continueButton.setOnClickListener(new View.OnClickListener() {
+
+
+
             @Override
             public void onClick(View v) {
+
                 if(CurrentUser.getRole().equals("admin")){
                     Intent intent = new Intent(getApplicationContext(),AdminPage.class);
                     startActivity(intent);
