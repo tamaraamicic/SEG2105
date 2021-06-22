@@ -5,10 +5,19 @@ public class Course {
     String name;
     String code;
     private int id;
-
+    private User instructor;
     Course(String name, String code) {
         this.name = name;
         this.code = code;
+        this.instructor = null;
+    }
+
+    public void setInstructor(User instructor){
+        this.instructor = instructor;
+    }
+
+    public User getInstructor() {
+        return instructor;
     }
 
     public void setID(int id){
