@@ -14,20 +14,9 @@
         android:text="Edit\nCourses"
         app:layout_constraintBottom_toTopOf="@+id/deleteCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createCourseButton" />
-
-    <Button
-        android:id="@+id/deleteCourseButton"
-        android:layout_width="150dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Delete\nCourses"
-        app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCourseButton" />
 
     <Button
         android:id="@+id/deleteAccountButton"
@@ -38,6 +27,7 @@
         android:text="Delete\nAccounts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteCourseButton" />
 
@@ -51,7 +41,7 @@
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toEndOf="@+id/role"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,7 +55,7 @@
         android:text="Role: "
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,6 +68,7 @@
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/roleDisplay" />
 
@@ -89,7 +80,7 @@
         android:layout_marginRight="300dp"
         android:text="User Name:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/role" />
 
@@ -102,7 +93,21 @@
         android:text="Create\nCourses"
         app:layout_constraintBottom_toTopOf="@+id/editCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deleteCourseButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Delete\nCourses"
+        app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCourseButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
