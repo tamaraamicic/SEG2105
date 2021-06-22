@@ -10,13 +10,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class InstructorPage extends AppCompatActivity {
+
     Button viewCoursesButton;
+    Button searchCoursesButton;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intructor_page);
 
         viewCoursesButton = (Button)findViewById(R.id.viewCoursesButton);
+        searchCoursesButton = (Button)findViewById(R.id.searchCoursesButton);
 
         viewCoursesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,5 +29,14 @@ public class InstructorPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        searchCoursesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InstructorSearchCourses.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

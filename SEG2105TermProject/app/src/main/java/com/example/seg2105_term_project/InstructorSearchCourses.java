@@ -1,5 +1,6 @@
 package com.example.seg2105_term_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,8 @@ public class InstructorSearchCourses extends AppCompatActivity {
 
     TextInputEditText inputNameForSearch;
     TextInputEditText inputCodeForSearch;
-    Button searchButton;
-    Button assignButton;
+    Button searchButtonForSearch;
+    Button assignButtonForSearch;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,29 +23,43 @@ public class InstructorSearchCourses extends AppCompatActivity {
 
         inputNameForSearch = (TextInputEditText) (findViewById(R.id.inputNameForSearch));
         inputCodeForSearch = (TextInputEditText) (findViewById(R.id.inputCodeForSearch));
-        searchButton = (Button)(findViewById(R.id.searchButton));
-        assignButton = (Button)(findViewById(R.id.assignButton));
+        searchButtonForSearch = (Button)(findViewById(R.id.searchButtonForSearch));
+        assignButtonForSearch = (Button)(findViewById(R.id.assignButtonForSearch));
+        assignButtonForSearch.setEnabled(false);
 
         MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        searchButtonForSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String name = inputNameForSearch.getText().toString();
                 String code = inputCodeForSearch.getText().toString();
                 Course course = handlerCourses.findCourse(name, code);
                 if (course != null) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Course found!", Toast.LENGTH_LONG);
-                    toast.show();
-                    //deleteButtonForDelete.setEnabled(true);
                     if (code.equals("")) {
                         inputCodeForSearch.setText(course.getCourseCode());
                     } else if (name.equals("")) {
                         inputNameForSearch.setText(course.getCourseName());
                     }
+                    if (course.getInstructor() != null) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "This course is already taught by " + course.getInstructor()
+                                + ", therefore you may not assign yourself to it.", Toast.LENGTH_LONG);
+                        toast.show();
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "This course is open! You may assign yourself to it.", Toast.LENGTH_LONG);
+                        toast.show();
+                        assignButtonForSearch.setEnabled(true);
+                    }
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
                     toast.show();
                 }
+            }
+        });
+
+        searchButtonForSearch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AssignCourse.class);
+                startActivity(intent);
             }
         });
 
