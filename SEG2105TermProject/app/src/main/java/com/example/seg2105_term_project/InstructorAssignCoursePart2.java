@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
-public class AssignCourse extends AppCompatActivity {
+public class InstructorAssignCoursePart2 extends AppCompatActivity {
 
     int hour1,minute1;
     EditText TimeInput1;
@@ -19,7 +19,7 @@ public class AssignCourse extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.assign_course);
+        setContentView(R.layout.instructor_assign_course_part2);
 
         TimeInput1 = findViewById(R.id.TimeInput1);
 
