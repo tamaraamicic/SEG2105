@@ -13,33 +13,33 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class InstructorAssignCourse extends AppCompatActivity {
 
-    TextInputEditText inputNameForSearch;
-    TextInputEditText inputCodeForSearch;
-    Button searchButtonForSearch;
-    Button assignButtonForSearch;
+    TextInputEditText inputNameForAssign;
+    TextInputEditText inputCodeForAssign;
+    Button searchButtonForAssign;
+    Button assignButtonForAssign;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course);
 
-        inputNameForSearch = (TextInputEditText) (findViewById(R.id.inputNameForSearch));
-        inputCodeForSearch = (TextInputEditText) (findViewById(R.id.inputCodeForSearch));
-        searchButtonForSearch = (Button)(findViewById(R.id.searchButtonForSearch));
-        assignButtonForSearch = (Button)(findViewById(R.id.assignButtonForSearch));
-        assignButtonForSearch.setEnabled(false);
+        inputNameForAssign = (TextInputEditText) (findViewById(R.id.inputNameForAssign));
+        inputCodeForAssign = (TextInputEditText) (findViewById(R.id.inputCodeForAssign));
+        searchButtonForAssign = (Button)(findViewById(R.id.searchButtonForAssign));
+        assignButtonForAssign = (Button)(findViewById(R.id.assignButtonForAssign));
+        assignButtonForAssign.setEnabled(false);
 
         MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
 
-        searchButtonForSearch.setOnClickListener(new View.OnClickListener() {
+        searchButtonForAssign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String name = inputNameForSearch.getText().toString();
-                String code = inputCodeForSearch.getText().toString();
+                String name = inputNameForAssign.getText().toString();
+                String code = inputCodeForAssign.getText().toString();
                 Course course = handlerCourses.findCourse(name, code);
                 if (course != null) {
                     if (code.equals("")) {
-                        inputCodeForSearch.setText(course.getCourseCode());
+                        inputCodeForAssign.setText(course.getCourseCode());
                     } else if (name.equals("")) {
-                        inputNameForSearch.setText(course.getCourseName());
+                        inputNameForAssign.setText(course.getCourseName());
                     }
                     if (course.getInstructor() != null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(InstructorAssignCourse.this);
@@ -53,7 +53,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
                         builder.setMessage("This course is open! You may assign yourself to it").setTitle("Notice");
                         AlertDialog dialog = builder.create();
                         dialog.show();
-                        assignButtonForSearch.setEnabled(true);
+                        assignButtonForAssign.setEnabled(true);
                     }
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
@@ -62,7 +62,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
             }
         });
 
-        assignButtonForSearch.setOnClickListener(new View.OnClickListener() {
+        assignButtonForAssign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), InstructorAssignCoursePart2.class);
                 startActivity(intent);

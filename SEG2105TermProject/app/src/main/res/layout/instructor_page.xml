@@ -40,7 +40,7 @@
         android:layout_width="150dp"
         android:layout_height="75dp"
         android:layout_marginTop="40dp"
-        android:text="edit a course i'm teaching"
+        android:text="edit a course i am teaching"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/unassignForInstructorPage" />

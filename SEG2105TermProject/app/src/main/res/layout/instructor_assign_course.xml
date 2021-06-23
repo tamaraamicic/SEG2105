@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputNameForSearch"
+        android:id="@+id/inputNameForAssign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputCodeForSearch"
+        android:id="@+id/inputCodeForAssign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,24 +31,25 @@
         android:hint="Course Code (e.g. PSY101)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNameForSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNameForAssign" />
 
     <Button
-        android:id="@+id/searchButtonForSearch"
+        android:id="@+id/searchButtonForAssign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:text="search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCodeForSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCodeForAssign" />
 
     <Button
-        android:id="@+id/assignButtonForSearch"
+        android:id="@+id/assignButtonForAssign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="assign myself to this course"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButtonForSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/searchButtonForAssign" />
 </androidx.constraintlayout.widget.ConstraintLayout>
