@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DeleteAccount extends AppCompatActivity {
+public class AdminDeleteAccount extends AppCompatActivity {
     TextView wholeView;
     EditText deleteAccountInput;
     Button confirmDeleteAccountButton;
@@ -19,7 +19,7 @@ public class DeleteAccount extends AppCompatActivity {
     StringBuilder stringBuilder;
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delete_accounts);
+        setContentView(R.layout.admin_delete_account);
 
         myDBHandler = new MyDBHandler(this);
 

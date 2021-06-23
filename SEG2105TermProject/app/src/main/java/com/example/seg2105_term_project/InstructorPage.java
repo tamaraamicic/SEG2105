@@ -17,7 +17,7 @@ public class InstructorPage extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intructor_page);
+        setContentView(R.layout.instructor_page);
 
         viewForInstructorPage = (Button)findViewById(R.id.viewForInstructorPage);
         assignForInstructorPage = (Button)findViewById(R.id.assignForInstructorPage);
@@ -27,7 +27,7 @@ public class InstructorPage extends AppCompatActivity {
         viewForInstructorPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ViewCoursesPage.class);
+                Intent intent = new Intent(getApplicationContext(), InstructorViewCourses.class);
                 startActivity(intent);
             }
         });

@@ -36,7 +36,7 @@ public class AdminPage extends AppCompatActivity {
         createCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CreateCourse.class);
+                Intent intent = new Intent(getApplicationContext(), AdminCreateCourse.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class AdminPage extends AppCompatActivity {
         editCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EditCourse.class);
+                Intent intent = new Intent(getApplicationContext(), AdminEditCourse.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +52,7 @@ public class AdminPage extends AppCompatActivity {
         deleteCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DeleteCourse.class);
+                Intent intent = new Intent(getApplicationContext(), AdminDeleteCourse.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class AdminPage extends AppCompatActivity {
         deleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),DeleteAccount.class);
+                Intent intent = new Intent(getApplicationContext(), AdminDeleteAccount.class);
                 startActivity(intent);
             }
         });

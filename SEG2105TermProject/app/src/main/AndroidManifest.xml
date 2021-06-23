@@ -46,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DeleteAccount"
+            android:name=".AdminDeleteAccount"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.DELETEACCOUNT" />
@@ -55,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateCourse"
+            android:name=".AdminCreateCourse"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.CREATECOURSE" />
@@ -64,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditCourse"
+            android:name=".AdminEditCourse"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.EDITCOURSE" />
@@ -73,7 +73,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DeleteCourse"
+            android:name=".AdminDeleteCourse"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.DELETECOURSE" />
@@ -100,7 +100,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewCoursesPage"
+            android:name=".InstructorViewCourses"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEWCOURSESPAGE" />
@@ -118,7 +118,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AssignCourse"
+            android:name=".InstructorAssignCoursePart2"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.ASSIGNCOURSE" />
