@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class EditCourse extends AppCompatActivity {
+public class AdminEditCourse extends AppCompatActivity {
 
     TextInputEditText inputNameForEdit;
     TextInputEditText inputCodeForEdit;
@@ -20,7 +20,7 @@ public class EditCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_course);
+        setContentView(R.layout.admin_edit_course);
 
         inputNameForEdit = (TextInputEditText) (findViewById(R.id.inputNameForEdit));
         inputCodeForEdit = (TextInputEditText) (findViewById(R.id.inputCodeForEdit));

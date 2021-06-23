@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class InstructorSearchCourses extends AppCompatActivity {
+public class InstructorAssignCourse extends AppCompatActivity {
 
     TextInputEditText inputNameForSearch;
     TextInputEditText inputCodeForSearch;
@@ -20,7 +20,7 @@ public class InstructorSearchCourses extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.instructor_search_courses);
+        setContentView(R.layout.instructor_assign_course);
 
         inputNameForSearch = (TextInputEditText) (findViewById(R.id.inputNameForSearch));
         inputCodeForSearch = (TextInputEditText) (findViewById(R.id.inputCodeForSearch));
@@ -42,14 +42,14 @@ public class InstructorSearchCourses extends AppCompatActivity {
                         inputNameForSearch.setText(course.getCourseName());
                     }
                     if (course.getInstructor() != null) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorSearchCourses.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorAssignCourse.this);
                         builder.setMessage("This course is already taught by " + course.getInstructor()
                                 + ", therefore you may not assign yourself to it.").setTitle("Notice");
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     } else {
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorSearchCourses.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InstructorAssignCourse.this);
                         builder.setMessage("This course is open! You may assign yourself to it").setTitle("Notice");
                         AlertDialog dialog = builder.create();
                         dialog.show();
@@ -64,7 +64,7 @@ public class InstructorSearchCourses extends AppCompatActivity {
 
         assignButtonForSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),AssignCourse.class);
+                Intent intent = new Intent(getApplicationContext(), InstructorAssignCoursePart2.class);
                 startActivity(intent);
             }
         });

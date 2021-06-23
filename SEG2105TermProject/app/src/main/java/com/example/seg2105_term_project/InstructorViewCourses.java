@@ -2,16 +2,15 @@ package com.example.seg2105_term_project;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ViewCoursesPage extends AppCompatActivity {
+public class InstructorViewCourses extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_courses);
+        setContentView(R.layout.instructor_view_courses);
 
         MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
 

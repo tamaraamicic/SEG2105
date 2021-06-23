@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class DeleteCourse extends AppCompatActivity {
+public class AdminDeleteCourse extends AppCompatActivity {
 
     TextInputEditText inputNameForDelete;
     TextInputEditText inputCodeForDelete;
@@ -18,7 +18,7 @@ public class DeleteCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delete_course);
+        setContentView(R.layout.admin_delete_course);
 
         inputNameForDelete = (TextInputEditText) (findViewById(R.id.inputNameForDelete));
         inputCodeForDelete = (TextInputEditText) (findViewById(R.id.inputCodeForDelete));
