@@ -20,7 +20,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.instructor_search_courses);
+        setContentView(R.layout.instructor_assign_course);
 
         inputNameForSearch = (TextInputEditText) (findViewById(R.id.inputNameForSearch));
         inputCodeForSearch = (TextInputEditText) (findViewById(R.id.inputCodeForSearch));
