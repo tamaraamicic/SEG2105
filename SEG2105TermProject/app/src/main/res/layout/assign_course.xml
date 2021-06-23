@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/DayInput1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="500dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
+        android:id="@+id/TimeInput1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -33,10 +33,10 @@
         android:hint="Time:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/DayInput1" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText3"
+        android:id="@+id/DayInput2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,10 +47,10 @@
         android:hint="Day 2:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+        app:layout_constraintTop_toBottomOf="@+id/TimeInput1" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText4"
+        android:id="@+id/TimeInput2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -58,26 +58,53 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="20dp"
         android:hint="Time:"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText3" />
+        app:layout_constraintTop_toBottomOf="@+id/DayInput2" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/CapacityLimit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Capacity limit:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TimeInput2" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/CourseDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Course Description:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CapacityLimit" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/assignButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginLeft="163dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginLeft="158dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
-        android:layout_marginBottom="153dp"
+        android:layout_marginBottom="70dp"
         android:text="Assign"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+        app:layout_constraintTop_toBottomOf="@+id/CourseDescription" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
