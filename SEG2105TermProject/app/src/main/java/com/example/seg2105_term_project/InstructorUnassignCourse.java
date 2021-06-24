@@ -20,7 +20,7 @@ public class InstructorUnassignCourse extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.instructor_assign_course);
+        setContentView(R.layout.instructor_unassign_course);
 
         inputNameForUnassign = (TextInputEditText) (findViewById(R.id.inputNameForUnassign));
         inputCodeForUnassign = (TextInputEditText) (findViewById(R.id.inputCodeForUnassign));

@@ -5,8 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/courseEditMessage"
+        android:layout_width="373dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Please enter the information you would like to change:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/DayInput1"
+        android:id="@+id/dayInputEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TimeInput1"
+        android:id="@+id/timeInputEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -34,10 +48,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DayInput1" />
+        app:layout_constraintTop_toBottomOf="@+id/dayInputEdit" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/DayInput2"
+        android:id="@+id/dayInput2Edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,11 +61,12 @@
         android:layout_marginRight="16dp"
         android:hint="Day 2:"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeInput1" />
+        app:layout_constraintTop_toBottomOf="@+id/timeInputEdit" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TimeInput2"
+        android:id="@+id/timeInput2Edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -61,11 +76,12 @@
         android:layout_marginRight="16dp"
         android:hint="Time:"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DayInput2" />
+        app:layout_constraintTop_toBottomOf="@+id/dayInput2Edit" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/CapacityLimit"
+        android:id="@+id/capacityLimitEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -75,11 +91,12 @@
         android:layout_marginRight="16dp"
         android:hint="Capacity limit:"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeInput2" />
+        app:layout_constraintTop_toBottomOf="@+id/timeInput2Edit" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/CourseDescription"
+        android:id="@+id/courseDescriptionEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -89,37 +106,8 @@
         android:layout_marginRight="16dp"
         android:hint="Course Description:"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CapacityLimit" />
-
-    <Button
-        android:id="@+id/assignButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginRight="159dp"
-        android:layout_marginBottom="70dp"
-        android:text="Assign"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CourseDescription" />
-
-    <TextView
-        android:id="@+id/courseAssignmentMessage"
-        android:layout_width="373dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Please specify the following details for the course you wish to teach:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/capacityLimitEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
