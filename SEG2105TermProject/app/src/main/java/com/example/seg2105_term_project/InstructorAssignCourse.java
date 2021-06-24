@@ -17,7 +17,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
     TextInputEditText inputCodeForAssign;
     Button searchButtonForAssign;
     Button assignButtonForAssign;
-
+    Course course;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course);
@@ -34,7 +34,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
             public void onClick(View view) {
                 String name = inputNameForAssign.getText().toString();
                 String code = inputCodeForAssign.getText().toString();
-                Course course = handlerCourses.findCourse(name, code);
+                course = handlerCourses.findCourse(name, code);
                 if (course != null) {
                     if (code.equals("")) {
                         inputCodeForAssign.setText(course.getCourseCode());
@@ -65,6 +65,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
         assignButtonForAssign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), InstructorAssignCoursePart2.class);
+                intent.putExtra("mainCourse",course.getCourseName());
                 startActivity(intent);
             }
         });

@@ -24,6 +24,10 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
     EditText DayInput1;
     EditText DayInput2;
     DatePickerDialog datePickerDialog;
+    String mainCourse;
+    Course course;
+    Button assignButton;
+    MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,20 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         TimeInput2 = findViewById(R.id.TimeInput2);
         DayInput1 = findViewById(R.id.DayInput1);
         DayInput2 = findViewById(R.id.DayInput2);
+        assignButton = findViewById(R.id.assignButton);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            mainCourse = extras.getString("mainCourse");
+            course = myDBHandlerCourses.findCourse(mainCourse,"");
+        }
+
+        assignButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                course.setInstructor(CurrentUser.getUsername());
+            }
+        });
 
         TimeInput1.setOnClickListener(new View.OnClickListener() {
             @Override
