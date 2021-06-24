@@ -27,4 +27,5 @@ public class User {
         return this.password;
     }
     public String getRole() { return this.role;}
+
 }

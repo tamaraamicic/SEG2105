@@ -41,7 +41,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
                     } else if (name.equals("")) {
                         inputNameForAssign.setText(course.getCourseName());
                     }
-                    if (course.getInstructor() != null) {
+                    if (course.getInstructor() != "") {
                         AlertDialog.Builder builder = new AlertDialog.Builder(InstructorAssignCourse.this);
                         builder.setMessage("This course is already taught by " + course.getInstructor()
                                 + ", therefore you may not assign yourself to it.").setTitle("Notice");

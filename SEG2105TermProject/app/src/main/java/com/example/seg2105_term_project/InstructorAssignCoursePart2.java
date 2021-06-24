@@ -3,12 +3,14 @@ package com.example.seg2105_term_project;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +29,8 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
     String mainCourse;
     Course course;
     Button assignButton;
+    EditText capacity;
+    EditText description;
     MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,9 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         DayInput1 = findViewById(R.id.DayInput1);
         DayInput2 = findViewById(R.id.DayInput2);
         assignButton = findViewById(R.id.assignButton);
+        capacity = findViewById(R.id.CapacityLimit);
+        description = findViewById(R.id.CourseDescription);
+        description.setText("");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             mainCourse = extras.getString("mainCourse");
@@ -47,8 +54,20 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         assignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(TimeInput1.getText().toString()!="" && TimeInput2.getText().toString() != "" && DayInput1.getText().toString()!="" && DayInput2.getText().toString() !="" && capacity.getText().toString()!=""){
+                    course.setInstructor(CurrentUser.getUsername());
+                    course.setDate1(DayInput1.getText().toString());
+                    course.setDate2(DayInput2.getText().toString());
+                    course.setTime1(TimeInput1.getText().toString());
+                    course.setTime2(TimeInput2.getText().toString());
+                    course.setCapacity(Integer.parseInt(capacity.getText().toString()));
+                    course.setDescription(description.getText().toString());
+                    Toast toast = Toast.makeText(getApplicationContext(), "Successfully Assigned!", Toast.LENGTH_LONG);
+                    toast.show();
+                    Intent intent = new Intent(getApplicationContext(), InstructorPage.class);
+                    startActivity(intent);
+                }
 
-                course.setInstructor(CurrentUser.getUsername());
             }
         });
 
@@ -76,7 +95,7 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         DayInput2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InitDatePicker1(v);
+                InitDatePicker2(v);
             }
         });
     }

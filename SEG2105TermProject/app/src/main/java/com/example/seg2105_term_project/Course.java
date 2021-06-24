@@ -6,10 +6,21 @@ public class Course {
     String code;
     private int id;
     private String instructor;
+    private String date1;
+    private String date2;
+    private String time1;
+    private String time2;
+    private int capacity;
+    private String description;
     Course(String name, String code) {
         this.name = name;
         this.code = code;
-        this.instructor = null;
+        this.date1 = "";
+        this.date2 = "";
+        this.time1 = "";
+        this.time2 = "";
+        this.capacity = 0;
+        this.description = "";
     }
 
     public void setInstructor(String instructor){
@@ -38,5 +49,52 @@ public class Course {
 
     public String getCourseCode() {
         return code;
+    }
+
+    public void setDate1(String date1){
+        this.date1 = date1;
+    }
+
+    public void setDate2(String date2) {
+        this.date2 = date2;
+    }
+
+    public void setTime1(String time1) {
+        this.time1 = time1;
+    }
+
+    public void setTime2(String time2) {
+        this.time2 = time2;
+    }
+
+    public String getDate1() {
+        return date1;
+    }
+
+    public String getDate2() {
+        return date2;
+    }
+
+    public String getTime1() {
+        return time1;
+    }
+
+    public String getTime2() {
+        return time2;
+    }
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+    public int getCapacity(){
+        return this.capacity;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
