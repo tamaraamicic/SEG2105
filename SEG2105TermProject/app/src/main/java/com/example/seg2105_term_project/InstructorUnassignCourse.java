@@ -41,12 +41,18 @@ public class InstructorUnassignCourse extends AppCompatActivity {
                     } else if (name.equals("")) {
                         inputNameForUnassign.setText(course.getCourseName());
                     }
-                    if (course.getInstructor().equals(CurrentUser.getUsername())) {
-                        unassignButtonForUnassign.setEnabled(true);
-                    } else {
+                    if (course.getInstructor() == null) {
                         Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry", Toast.LENGTH_LONG);
                         toast.show();
+                    } else {
+                        if (course.getInstructor().equals(CurrentUser.getUsername())) {
+                            unassignButtonForUnassign.setEnabled(true);
+                        } else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
                     }
+
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
                     toast.show();
