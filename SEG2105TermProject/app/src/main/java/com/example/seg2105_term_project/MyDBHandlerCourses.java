@@ -15,6 +15,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_COURSENAME = "coursename"; // was product name
     private static final String COLUMN_CODE = "code"; // was product price
+    private static final String COLUMN_INSTRUCTOR = "instructor";
     private static final String COLUMN_DATE1 = "date1";
     private static final String COLUMN_DATE2 = "date2";
     private static final String COLUMN_TIME1 = "time1";
@@ -35,6 +36,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                 COLUMN_COURSENAME + " TEXT, " +
                 COLUMN_CODE + " TEXT, " +
+                COLUMN_INSTRUCTOR + " TEXT, " +
                 COLUMN_DATE1 + " TEXT, " +
                 COLUMN_DATE2 + " TEXT, " +
                 COLUMN_TIME1 + " TEXT, " +
@@ -60,6 +62,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_COURSENAME, course.getCourseName());
         values.put(COLUMN_CODE, course.getCourseCode());
+        values.put(COLUMN_INSTRUCTOR, course.getInstructor());
         values.put(COLUMN_DATE1, course.getDate1());
         values.put(COLUMN_DATE2, course.getDate2());
         values.put(COLUMN_TIME1, course.getTime1());
@@ -92,12 +95,13 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
                 course.setID(Integer.parseInt(cursor.getString(0)));
                 course.setCourseName(cursor.getString(1));
                 course.setCourseCode(cursor.getString(2));
-                course.setDate1(cursor.getString(3));
-                course.setDate2(cursor.getString(4));
-                course.setTime2(cursor.getString(5));
-                course.setTime2(cursor.getString(6));
-                course.setCapacity(cursor.getInt(7));
-                course.setDescription(cursor.getString(8));
+                course.setInstructor(cursor.getString(3));
+                course.setDate1(cursor.getString(4));
+                course.setDate2(cursor.getString(5));
+                course.setTime1(cursor.getString(6));
+                course.setTime2(cursor.getString(7));
+                course.setCapacity(cursor.getInt(8));
+                course.setDescription(cursor.getString(9));
 
                 cursor.close();
             } else {

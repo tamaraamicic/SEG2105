@@ -55,13 +55,7 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TimeInput1.getText().toString()!="" && TimeInput2.getText().toString() != "" && DayInput1.getText().toString()!="" && DayInput2.getText().toString() !="" && capacity.getText().toString()!=""){
-                    course.setInstructor(CurrentUser.getUsername());
-                    course.setDate1(DayInput1.getText().toString());
-                    course.setDate2(DayInput2.getText().toString());
-                    course.setTime1(TimeInput1.getText().toString());
-                    course.setTime2(TimeInput2.getText().toString());
-                    course.setCapacity(Integer.parseInt(capacity.getText().toString()));
-                    course.setDescription(description.getText().toString());
+                    addCourseAgain(course);
                     Toast toast = Toast.makeText(getApplicationContext(), "Successfully Assigned!", Toast.LENGTH_LONG);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(), InstructorPage.class);
@@ -216,6 +210,24 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
             return "DEC";
         }
         return "JAN";
+    }
+
+    public Course addCourseAgain(Course course){
+        String courseName = course.getCourseName();
+        String courseCode = course.getCourseCode();
+        myDBHandlerCourses.deleteCourse(courseName,courseCode);
+        Course newCourse = new Course(courseName,courseCode);
+        newCourse.setCourseName(courseName);
+        newCourse.setCourseCode(courseCode);
+        newCourse.setInstructor(CurrentUser.getUsername());
+        newCourse.setDate1(DayInput1.getText().toString());
+        newCourse.setDate2(DayInput2.getText().toString());
+        newCourse.setTime1(TimeInput1.getText().toString());
+        newCourse.setTime2(TimeInput2.getText().toString());
+        newCourse.setCapacity(Integer.parseInt(capacity.getText().toString()));
+        newCourse.setDescription(description.getText().toString());
+        myDBHandlerCourses.addCourse(newCourse);
+        return newCourse;
     }
 
 }

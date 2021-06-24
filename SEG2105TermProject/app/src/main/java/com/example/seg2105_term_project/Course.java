@@ -21,6 +21,7 @@ public class Course {
         this.time2 = "";
         this.capacity = 0;
         this.description = "";
+        this.instructor = "";
     }
 
     public void setInstructor(String instructor){
