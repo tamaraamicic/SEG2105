@@ -65,7 +65,7 @@ public class InstructorEditCourse extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), InstructorEditCoursePart2.class);
-                intent.putExtra("mainCourse",course.getCourseName());
+                intent.putExtra("mainCourse",course.getCourseCode());
                 startActivity(intent);
             }
         });

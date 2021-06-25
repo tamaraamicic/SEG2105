@@ -42,7 +42,7 @@ public class InstructorEditCoursePart2 extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             mainCourse = extras.getString("mainCourse");
-            course = myDBHandlerCourses.findCourse(mainCourse,"");
+            course = myDBHandlerCourses.findCourse("",mainCourse);
         }
 
         assignButton.setOnClickListener(new View.OnClickListener() {

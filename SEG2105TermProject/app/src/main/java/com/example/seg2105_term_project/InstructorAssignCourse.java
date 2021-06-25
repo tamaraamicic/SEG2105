@@ -65,7 +65,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
         assignButtonForAssign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), InstructorAssignCoursePart2.class);
-                intent.putExtra("mainCourse",course.getCourseName());
+                intent.putExtra("mainCourse",course.getCourseCode());
                 startActivity(intent);
             }
         });
