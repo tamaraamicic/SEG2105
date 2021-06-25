@@ -17,6 +17,7 @@ public class InstructorUnassignCourse extends AppCompatActivity {
     TextInputEditText inputCodeForUnassign;
     Button searchButtonForUnassign;
     Button unassignButtonForUnassign;
+    Course course;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +31,13 @@ public class InstructorUnassignCourse extends AppCompatActivity {
 
         MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
 
+
+
         searchButtonForUnassign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String name = inputNameForUnassign.getText().toString();
                 String code = inputCodeForUnassign.getText().toString();
-                Course course = handlerCourses.findCourse(name, code);
+                course = handlerCourses.findCourse(name, code);
                 if (course != null) {
                     if (code.equals("")) {
                         inputCodeForUnassign.setText(course.getCourseCode());
@@ -57,6 +60,21 @@ public class InstructorUnassignCourse extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
                     toast.show();
                 }
+            }
+        });
+
+        unassignButtonForUnassign.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String name = inputNameForUnassign.getText().toString();
+                String code = inputCodeForUnassign.getText().toString();
+
+                handlerCourses.deleteCourse(name,code);
+                Course newCourse = new Course(name,code);
+                handlerCourses.addCourse(newCourse);
+                course = newCourse;
+
+                Toast toast = Toast.makeText(getApplicationContext(), "Successfully unassigned.", Toast.LENGTH_LONG);
+                toast.show();
             }
         });
 
