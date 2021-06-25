@@ -21,26 +21,48 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
 
     int hour1,minute1,hour2,minute2;
 
-    EditText TimeInput1;
-    EditText TimeInput2;
     EditText DayInput1;
     EditText DayInput2;
-    DatePickerDialog datePickerDialog;
+    Button TimeInput1;
+    Button TimeInput2;
     String mainCourse;
     Course course;
     Button assignButton;
     EditText capacity;
     EditText description;
     MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
+
+
+    private boolean validDay(String day) {
+        if (day.equals("Monday") || day.equals("Tuesday") || day.equals("Wednesday") || day.equals("Thursday") || day.equals("Friday") || day.equals("Saturday") || day.equals("Sunday")) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean validCapacity(String capacity) {
+        int intCapacity = -1;
+        try {
+            intCapacity = Integer.parseInt(capacity);
+        } catch (Exception e) {
+            return false;
+        } finally {
+            if (intCapacity > 0 && intCapacity <= 500) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course_part2);
 
-        TimeInput1 = findViewById(R.id.TimeInput1);
-        TimeInput2 = findViewById(R.id.TimeInput2);
         DayInput1 = findViewById(R.id.DayInput1);
         DayInput2 = findViewById(R.id.DayInput2);
+        TimeInput1 = findViewById(R.id.TimeInput1);
+        TimeInput2 = findViewById(R.id.TimeInput2);
         assignButton = findViewById(R.id.assignButton);
         capacity = findViewById(R.id.CapacityLimit);
         description = findViewById(R.id.CourseDescription);
@@ -54,14 +76,28 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         assignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TimeInput1.getText().toString()!="" && TimeInput2.getText().toString() != "" && DayInput1.getText().toString()!="" && DayInput2.getText().toString() !="" && capacity.getText().toString()!=""){
+                if (!validDay(DayInput1.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Day 1 invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (TimeInput1.getText().toString() == "select time") {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 1.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (!validDay(DayInput2.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Day 2 invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (TimeInput2.getText().toString() == "select time") {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 2.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (!validCapacity(capacity.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Capacity invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
                     addCourseAgain(course);
                     Toast toast = Toast.makeText(getApplicationContext(), "Successfully Assigned!", Toast.LENGTH_LONG);
                     toast.show();
                     Intent intent = new Intent(getApplicationContext(), InstructorPage.class);
                     startActivity(intent);
                 }
-
             }
         });
 
