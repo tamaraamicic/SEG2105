@@ -6,39 +6,6 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputNameForDelete"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:hint="Course Name (e.g. Psychology)"
-        app:layout_constraintBottom_toTopOf="@+id/findButtonForDelete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCodeForDelete" />
-
-    <Button
-        android:id="@+id/findButtonForDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="Find course"
-        app:layout_constraintBottom_toTopOf="@+id/deleteButtonForDelete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/deleteButtonForDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="Delete course"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findButtonForDelete" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputCodeForDelete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -50,13 +17,58 @@
         app:layout_constraintBottom_toTopOf="@+id/inputNameForDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/entireCourseView" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputNameForDelete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="Course Name (e.g. Psychology)"
+        app:layout_constraintBottom_toTopOf="@+id/findButtonForDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputCodeForDelete" />
+
+    <Button
+        android:id="@+id/findButtonForDelete"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="24dp"
+        android:text="Find course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButtonForDelete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNameForDelete"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <Button
+        android:id="@+id/deleteButtonForDelete"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Delete course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/findButtonForDelete"
+        app:layout_constraintTop_toBottomOf="@+id/inputNameForDelete" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="413dp"
-        android:layout_height="358dp"
+        android:id="@+id/entireCourseView"
+        android:layout_width="377dp"
+        android:layout_height="472dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/inputCodeForDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
