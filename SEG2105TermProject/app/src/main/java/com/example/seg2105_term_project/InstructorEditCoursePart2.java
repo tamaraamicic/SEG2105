@@ -14,28 +14,48 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Calendar;
 import java.util.Locale;
 
 public class InstructorEditCoursePart2 extends AppCompatActivity {
+
     int hour1,minute1,hour2,minute2;
-    EditText TimeInput1,TimeInput2,DayInput1,DayInput2,capacity,description;
-    Button assignButton;
-    DatePickerDialog datePickerDialog;
+    EditText DayInput1,DayInput2,capacity,description;
+    Button finishButton, TimeInput1, TimeInput2;
     String mainCourse;
     MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
     Course course;
+
+    private boolean validDay(String day) {
+        if (day.equals("Monday") || day.equals("Tuesday") || day.equals("Wednesday") || day.equals("Thursday") || day.equals("Friday") || day.equals("Saturday") || day.equals("Sunday")) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean validCapacity(String capacity) {
+        int intCapacity = -1;
+        try {
+            intCapacity = Integer.parseInt(capacity);
+        } catch (Exception e) {
+            return false;
+        } finally {
+            if (intCapacity > 0 && intCapacity <= 500) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_edit_course_part2);
 
-        TimeInput1 = findViewById(R.id.timeInput1);
-        TimeInput2 = findViewById(R.id.timeInput2);
+        TimeInput1 = findViewById(R.id.TimeInput1Edit);
+        TimeInput2 = findViewById(R.id.TimeInput2Edit);
         DayInput1 = findViewById(R.id.dayInput1);
         DayInput2 = findViewById(R.id.dayInput2);
-        assignButton = findViewById(R.id.finishButton);
+        finishButton = findViewById(R.id.finishButton);
         capacity = findViewById(R.id.capacityLimit);
         description = findViewById(R.id.courseDescription);
         description.setText("");
@@ -43,12 +63,34 @@ public class InstructorEditCoursePart2 extends AppCompatActivity {
         if (extras != null) {
             mainCourse = extras.getString("mainCourse");
             course = myDBHandlerCourses.findCourse("",mainCourse);
+            DayInput1.setText(course.getDate1());
+            TimeInput1.setText(course.getTime1());
+            DayInput2.setText(course.getDate2());
+            TimeInput2.setText(course.getTime2());
+            capacity.setText(course.getCapacity());
+            description.setText(course.getDescription());
         }
 
-        assignButton.setOnClickListener(new View.OnClickListener() {
+        finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TimeInput1.getText().toString()!="" && TimeInput2.getText().toString() != "" && DayInput1.getText().toString()!="" && DayInput2.getText().toString() !="" && capacity.getText().toString()!=""){
+
+                if (!validDay(DayInput1.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Day 1 invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (TimeInput1.getText().toString().equals("select time")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 1.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (!validDay(DayInput2.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Day 2 invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (TimeInput2.getText().toString().equals("select time")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 2.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (!validCapacity(capacity.getText().toString())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Capacity invalid.", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
                     addCourseAgain(course);
                     Toast toast = Toast.makeText(getApplicationContext(), "Successfully Assigned!", Toast.LENGTH_LONG);
                     toast.show();
