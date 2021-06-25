@@ -79,13 +79,13 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
                 if (!validDay(DayInput1.getText().toString())) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Day 1 invalid.", Toast.LENGTH_LONG);
                     toast.show();
-                } else if (TimeInput1.getText().toString() == "select time") {
+                } else if (TimeInput1.getText().toString().equals("select time")) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 1.", Toast.LENGTH_LONG);
                     toast.show();
                 } else if (!validDay(DayInput2.getText().toString())) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Day 2 invalid.", Toast.LENGTH_LONG);
                     toast.show();
-                } else if (TimeInput2.getText().toString() == "select time") {
+                } else if (TimeInput2.getText().toString().equals("select time")) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Please enter time for day 2.", Toast.LENGTH_LONG);
                     toast.show();
                 } else if (!validCapacity(capacity.getText().toString())) {
