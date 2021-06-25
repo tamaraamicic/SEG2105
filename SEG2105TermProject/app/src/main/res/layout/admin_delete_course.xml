@@ -7,64 +7,58 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputNameForDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:hint="Course Name (e.g. Psychology)"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputCodeForDelete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:hint="Course Code (e.g. PSY101)"
+        android:hint="Course Name (e.g. Psychology)"
+        app:layout_constraintBottom_toTopOf="@+id/findButtonForDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNameForDelete" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCodeForDelete" />
+
+    <Button
+        android:id="@+id/findButtonForDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Find course"
+        app:layout_constraintBottom_toTopOf="@+id/deleteButtonForDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/deleteButtonForDelete"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="400dp"
         android:text="Delete course"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findButtonForDelete" />
 
-    <Button
-        android:id="@+id/findButtonForDelete"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputCodeForDelete"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="8dp"
-        android:text="Find course"
-        app:layout_constraintBottom_toTopOf="@+id/deleteButtonForDelete"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="Course Code (e.g. PSY101)"
+        app:layout_constraintBottom_toTopOf="@+id/inputNameForDelete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputCodeForDelete"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="413dp"
+        android:layout_height="358dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

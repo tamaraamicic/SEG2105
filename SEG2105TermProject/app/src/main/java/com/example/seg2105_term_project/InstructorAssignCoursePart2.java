@@ -79,19 +79,6 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
             }
         });
 
-        DayInput1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InitDatePicker1(v);
-            }
-        });
-
-        DayInput2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InitDatePicker2(v);
-            }
-        });
     }
 
     public void Time1Picker(View view){
@@ -123,94 +110,6 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    public void InitDatePicker1(View view){
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month +1;
-                String date =  makeDateString(dayOfMonth, month, year);
-                DayInput1.setText(date);
-
-            }
-        };
-
-
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int date = cal.get(Calendar.DATE);
-
-        int style = AlertDialog.THEME_HOLO_LIGHT;
-        datePickerDialog = new DatePickerDialog(this,style,dateSetListener,year,month,date);
-        datePickerDialog.setTitle("Select Date");
-        datePickerDialog.show();
-    }
-    public void InitDatePicker2(View view){
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month +1;
-                String date =  makeDateString(dayOfMonth, month, year);
-                DayInput2.setText(date);
-
-            }
-        };
-
-
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int date = cal.get(Calendar.DATE);
-
-        int style = AlertDialog.THEME_HOLO_LIGHT;
-        datePickerDialog = new DatePickerDialog(this,style,dateSetListener,year,month,date);
-        datePickerDialog.setTitle("Select Date");
-        datePickerDialog.show();
-    }
-
-    public String makeDateString(int day, int month, int year){
-        return getMonthFormat(month)+" "+day+" "+year;
-    }
-
-    private String getMonthFormat(int month) {
-        if(month==1){
-            return "JAN";
-        }
-        if(month==2){
-            return "FEB";
-        }
-        if(month==3){
-            return "MAR";
-        }
-        if(month==4){
-            return "APR";
-        }
-        if(month==5){
-            return "MAY";
-        }
-        if(month==6){
-            return "JUN";
-        }
-        if(month==7){
-            return "JUL";
-        }
-        if(month==8){
-            return "AUG";
-        }
-        if(month==9){
-            return "SEP";
-        }
-        if(month==10){
-            return "OCT";
-        }
-        if(month==11){
-            return "NOV";
-        }
-        if(month==12){
-            return "DEC";
-        }
-        return "JAN";
-    }
 
     public Course addCourseAgain(Course course){
         String courseName = course.getCourseName();
