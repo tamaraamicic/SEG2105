@@ -1,5 +1,6 @@
 package com.example.seg2105_term_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ public class InstructorEditCourse extends AppCompatActivity {
     TextInputEditText inputCodeForInstructorEditCourse;
     Button searchButtonForInstructorEditCourse;
     Button editButtonForInstructorEditCourse;
-
+    Course course;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_edit_course);
@@ -31,31 +32,41 @@ public class InstructorEditCourse extends AppCompatActivity {
 
         searchButtonForInstructorEditCourse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 String name = inputNameForInstructorEditCourse.getText().toString();
                 String code = inputCodeForInstructorEditCourse.getText().toString();
-                Course course = handlerCourses.findCourse(name, code);
-                if (course != null) {
-                    if (code.equals("")) {
-                        inputCodeForInstructorEditCourse.setText(course.getCourseCode());
-                    } else if (name.equals("")) {
-                        inputNameForInstructorEditCourse.setText(course.getCourseName());
-                    }
-                    if (course.getInstructor() == null) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry", Toast.LENGTH_LONG);
-                        toast.show();
-                    } else {
-                        if (course.getInstructor().equals(CurrentUser.getUsername())) {
-                            editButtonForInstructorEditCourse.setEnabled(true);
-                        } else {
+                if (name == null && code == null) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "No Field Has Text. Please retry", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    course = handlerCourses.findCourse(name, code);
+                    if (course != null) {
+                        if (code.equals("")) {
+                            inputCodeForInstructorEditCourse.setText(course.getCourseCode());
+                        } else if (name.equals("")) {
+                            inputNameForInstructorEditCourse.setText(course.getCourseName());
+                        }
+                        if (!course.getInstructor().equals(CurrentUser.getUsername())) {
                             Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry", Toast.LENGTH_LONG);
                             toast.show();
+                        } else {
+                            editButtonForInstructorEditCourse.setEnabled(true);
                         }
-                    }
 
-                } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
-                    toast.show();
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
                 }
+            }
+        });
+
+        editButtonForInstructorEditCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InstructorEditCoursePart2.class);
+                intent.putExtra("mainCourse",course.getCourseName());
+                startActivity(intent);
             }
         });
 

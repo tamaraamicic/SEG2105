@@ -41,7 +41,7 @@ public class InstructorUnassignCourse extends AppCompatActivity {
                     } else if (name.equals("")) {
                         inputNameForUnassign.setText(course.getCourseName());
                     }
-                    if (course.getInstructor() == null) {
+                    if (course.getInstructor().equals("")) {
                         Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry", Toast.LENGTH_LONG);
                         toast.show();
                     } else {
