@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.w3c.dom.Text;
-
 public class AdminDeleteCourse extends AppCompatActivity {
 
     TextInputEditText inputNameForDelete;
@@ -30,12 +28,13 @@ public class AdminDeleteCourse extends AppCompatActivity {
 
 
 
+
         inputNameForDelete = (TextInputEditText) (findViewById(R.id.inputNameForDelete));
         inputCodeForDelete = (TextInputEditText) (findViewById(R.id.inputCodeForDelete));
         deleteButtonForDelete = (Button)(findViewById(R.id.deleteButtonForDelete));
         deleteButtonForDelete.setEnabled(false);
         findButtonForDelete = (Button)(findViewById(R.id.findButtonForDelete));
-        entireCourseview = (TextView)findViewById(R.id.entireCourseView);
+        entireCourseview = (TextView)findViewById(R.id.entireTextView);
 
 
         myDBHandlerCourses = new MyDBHandlerCourses(this);

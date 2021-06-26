@@ -67,7 +67,7 @@ public class InstructorEditCoursePart2 extends AppCompatActivity {
             TimeInput1.setText(course.getTime1());
             DayInput2.setText(course.getDate2());
             TimeInput2.setText(course.getTime2());
-            capacity.setText(course.getCapacity());
+            capacity.setText(""+course.getCapacity());
             description.setText(course.getDescription());
         }
 
