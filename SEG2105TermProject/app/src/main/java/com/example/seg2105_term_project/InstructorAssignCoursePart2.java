@@ -59,13 +59,13 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course_part2);
 
-        DayInput1 = findViewById(R.id.dayInput1);
-        DayInput2 = findViewById(R.id.dayInput2);
-        TimeInput1Edit = findViewById(R.id.TimeInput1Edit);
-        TimeInput2Edit = findViewById(R.id.TimeInput2Edit);
-        finishButton = findViewById(R.id.finishButton);
-        capacityLimit = findViewById(R.id.capacityLimit);
-        courseDescription = findViewById(R.id.courseDescription);
+        DayInput1 = findViewById(R.id.DayInput1);
+        DayInput2 = findViewById(R.id.DayInput2);
+        TimeInput1Edit = findViewById(R.id.TimeInput1);
+        TimeInput2Edit = findViewById(R.id.TimeInput2);
+        finishButton = findViewById(R.id.assignButton);
+        capacityLimit = findViewById(R.id.CapacityLimit);
+        courseDescription = findViewById(R.id.CourseDescription);
         courseDescription.setText("");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
