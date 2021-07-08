@@ -153,6 +153,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".StudentEnroll"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTENROLL" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StudentUnenroll"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTUNENROLL" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StudentViewCourses"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTVIEWCOURSES" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

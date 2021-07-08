@@ -13,7 +13,7 @@ public class StudentViewEnrolledCourses extends AppCompatActivity {
 
         MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
 
-        TextView entireView = (TextView) findViewById(R.id.entireView);
+        TextView entireView = (TextView) findViewById(R.id.studentViewEnrolledCoursesText);
 
         Cursor cursor = myDBHandlerCourses.viewData();
 

@@ -66,11 +66,34 @@ public class StudentEnroll extends AppCompatActivity {
         enrollButtonForEnroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StudentEnrollPart2.class);
-                intent.putExtra("mainCourse",course.getCourseCode());
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                course.addStudent(CurrentUser.getUsername());
+                addCourseAgain(course);
+                builder.setMessage("Successfully enrolled!").setTitle("Done");
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
+
+    }
+    public Course addCourseAgain(Course course){
+        String courseName = course.getCourseName();
+        String courseCode = course.getCourseCode();
+        String allStudents = course.getStudents();
+        myDBHandlerCourses.deleteCourse(courseName,courseCode);
+        Course newCourse = new Course(courseName,courseCode);
+        newCourse.setCourseName(courseName);
+        newCourse.setCourseCode(courseCode);
+        newCourse.setInstructor(CurrentUser.getUsername());
+        newCourse.setDate1(course.getDate1());
+        newCourse.setDate2(course.getDate2());
+        newCourse.setTime1(course.getTime1());
+        newCourse.setTime2(course.getTime2());
+        newCourse.setCapacity(course.getCapacity());
+        newCourse.setDescription(course.getDescription());
+        newCourse.setStudents(allStudents);
+        myDBHandlerCourses.addCourse(newCourse);
+        return newCourse;
     }
 }
