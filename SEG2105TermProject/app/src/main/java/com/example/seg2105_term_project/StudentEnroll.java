@@ -85,7 +85,7 @@ public class StudentEnroll extends AppCompatActivity {
         Course newCourse = new Course(courseName,courseCode);
         newCourse.setCourseName(courseName);
         newCourse.setCourseCode(courseCode);
-        newCourse.setInstructor(CurrentUser.getUsername());
+        newCourse.setInstructor(course.getInstructor());
         newCourse.setDate1(course.getDate1());
         newCourse.setDate2(course.getDate2());
         newCourse.setTime1(course.getTime1());
