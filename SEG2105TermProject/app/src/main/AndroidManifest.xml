@@ -180,6 +180,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".StudentViewEnrolledCourses"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTVIEWENROLLEDCOURSES" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
