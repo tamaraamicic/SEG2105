@@ -1,5 +1,7 @@
 package com.example.seg2105_term_project;
 
+import java.util.ArrayList;
+
 public class Course {
 
     String name;
@@ -12,6 +14,7 @@ public class Course {
     private String time2;
     private int capacity;
     private String description;
+    ArrayList<String> students;
     Course(String name, String code) {
         this.name = name;
         this.code = code;
@@ -22,6 +25,7 @@ public class Course {
         this.capacity = 0;
         this.description = "";
         this.instructor = "";
+        students = new ArrayList<String>();
     }
 
     public void setInstructor(String instructor){
@@ -97,5 +101,15 @@ public class Course {
 
     public String getDescription() {
         return description;
+    }
+
+    public void addStudent(String studentName){
+        students.add(studentName);
+    }
+    public void removeStudent(String studentName){
+        students.remove(studentName);
+    }
+    public ArrayList<String> getStudents(){
+        return this.students;
     }
 }

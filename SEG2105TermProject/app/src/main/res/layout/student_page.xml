@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/studentEnrollCourse"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="Enroll \nInto Course"
+        app:layout_constraintBottom_toTopOf="@+id/studentUnenrollCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentViewEnrolledCourses" />
+
+    <Button
+        android:id="@+id/studentUnenrollCourse"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="Unenroll \nFrom Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentEnrollCourse" />
+
+    <Button
+        android:id="@+id/studentViewEnrolledCourses"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="View Enrolled Courses"
+        app:layout_constraintBottom_toTopOf="@+id/studentEnrollCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
