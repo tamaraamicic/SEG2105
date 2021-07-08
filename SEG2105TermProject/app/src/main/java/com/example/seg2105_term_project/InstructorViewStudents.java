@@ -1,41 +1,70 @@
 package com.example.seg2105_term_project;
 
-import android.database.Cursor;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 public class InstructorViewStudents extends AppCompatActivity {
 
-    protected void onCreate(Bundle savedInstanceState){
+    TextInputEditText inputNameForInstructorViewStudents;
+    TextInputEditText inputCodeInstructorViewStudents;
+    Button searchButtonForInstructorViewStudents;
+    Button viewStudentsForInstructorViewStudents;
+    Course course;
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_view_students);
 
-        MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
+        inputNameForInstructorViewStudents = (TextInputEditText) (findViewById(R.id.inputNameForInstructorViewStudents));
+        inputCodeInstructorViewStudents = (TextInputEditText) (findViewById(R.id.inputCodeInstructorViewStudents));
+        searchButtonForInstructorViewStudents = (Button)(findViewById(R.id.searchButtonForInstructorViewStudents));
+        viewStudentsForInstructorViewStudents = (Button)(findViewById(R.id.viewStudentsForInstructorViewStudents));
+        viewStudentsForInstructorViewStudents.setEnabled(false);
 
-        TextView instructorViewStudentsTextView = (TextView) findViewById(R.id.instructorViewStudentsTextView);
+        MyDBHandlerCourses handlerCourses = new MyDBHandlerCourses(this);
 
-        Cursor cursor = myDBHandlerCourses.viewData();
-
-        StringBuilder stringBuilder = new StringBuilder("No Data To Show");
-        while (cursor.moveToNext()) {
-            int index = stringBuilder.indexOf("No Data To Show");
-            if (index!=-1){
-                stringBuilder.delete(0,"No Data To Show".length());
+        searchButtonForInstructorViewStudents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String name = inputNameForInstructorViewStudents.getText().toString();
+                String code = inputCodeInstructorViewStudents.getText().toString();
+                course = handlerCourses.findCourse(name, code);
+                if (course != null) {
+                    if (code.equals("")) {
+                        inputCodeInstructorViewStudents.setText(course.getCourseCode());
+                    } else if (name.equals("")) {
+                        inputNameForInstructorViewStudents.setText(course.getCourseName());
+                    }
+                    if (course.getInstructor().equals(CurrentUser.getUsername())) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "You teach this course! You may view the students.", Toast.LENGTH_LONG);
+                        toast.show();
+                        viewStudentsForInstructorViewStudents.setEnabled(true);
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "You do not teach this course. Please retry.", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
-            if (cursor.getString(3) == CurrentUser.getUsername()) {
-                stringBuilder.append("Students in course " + cursor.getString(1) + ": ");
-                stringBuilder.append(cursor.getString(10));
-                stringBuilder.append("\n");
+        });
+
+        viewStudentsForInstructorViewStudents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), InstructorViewStudentsPart2.class);
+                intent.putExtra("mainCourse",course.getCourseCode());
+                startActivity(intent);
             }
-//            stringBuilder.append("\nCourse Name: " + cursor.getString(1) + "\nCourse Code: " + cursor.getString(2)+ "\nInstructor: " + cursor.getString(3)
-//                    + "\nDate 1: " + cursor.getString(4)+ "\nTime 1: " + cursor.getString(6)+ "\nDate 2: " + cursor.getString(5)+ "\nTime 2: "
-//                    + cursor.getString(7)+ "\nCapacity: " + cursor.getString(8)+ "\nDescription: " + cursor.getString(9));
-//            stringBuilder.append("\n");
-        }
+        });
 
-
-        instructorViewStudentsTextView.setText(stringBuilder);
     }
+
+
 }

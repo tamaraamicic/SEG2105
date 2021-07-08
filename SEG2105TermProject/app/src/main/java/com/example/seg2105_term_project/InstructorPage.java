@@ -61,7 +61,7 @@ public class InstructorPage extends AppCompatActivity {
         viewStudentsInstructorPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), InstructorViewStudents.class);
+                Intent intent = new Intent(getApplicationContext(), InstructorViewStudentsPart2.class);
                 startActivity(intent);
             }
         });
