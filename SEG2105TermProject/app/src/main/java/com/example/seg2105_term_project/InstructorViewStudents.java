@@ -21,6 +21,7 @@ public class InstructorViewStudents extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_view_students);
+        getSupportActionBar().setTitle("View Students");
 
         inputNameForInstructorViewStudents = (TextInputEditText) (findViewById(R.id.inputNameForInstructorViewStudents));
         inputCodeInstructorViewStudents = (TextInputEditText) (findViewById(R.id.inputCodeInstructorViewStudents));

@@ -22,6 +22,7 @@ public class AdminPage extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_page);
+        getSupportActionBar().setTitle("Admin Activity");
 
         createCourseButton = (Button)findViewById(R.id.createCourseButton);
         editCourseButton = (Button)findViewById(R.id.editCourseButton);

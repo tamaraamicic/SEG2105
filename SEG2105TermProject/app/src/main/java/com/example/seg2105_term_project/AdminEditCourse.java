@@ -21,6 +21,7 @@ public class AdminEditCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_edit_course);
+        getSupportActionBar().setTitle("Course Modification");
 
         inputNameForEdit = (TextInputEditText) (findViewById(R.id.inputNameForEdit));
         inputCodeForEdit = (TextInputEditText) (findViewById(R.id.inputCodeForEdit));

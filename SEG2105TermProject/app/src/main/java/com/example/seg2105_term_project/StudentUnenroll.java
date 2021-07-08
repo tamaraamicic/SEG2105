@@ -22,6 +22,7 @@ public class StudentUnenroll extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_unenroll);
+        getSupportActionBar().setTitle("Course Un-Enrollment");
 
         inputNameForUnenroll = (TextInputEditText) (findViewById(R.id.inputNameForUnenroll));
         inputCodeForUnenroll = (TextInputEditText) (findViewById(R.id.inputCodeForUnenroll));

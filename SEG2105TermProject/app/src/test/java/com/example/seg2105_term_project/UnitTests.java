@@ -6,6 +6,10 @@ import static org.junit.Assert.*;
 
 public class UnitTests {
 
+
+
+
+
     @Test
     public void instructorIsCorrect() {
         Course course = new Course("Introduction to Software Engineering", "SEG2105");

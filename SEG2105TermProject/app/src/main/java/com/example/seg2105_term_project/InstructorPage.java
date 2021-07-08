@@ -19,6 +19,7 @@ public class InstructorPage extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_page);
+        getSupportActionBar().setTitle("Instructor Activity");
 
         viewForInstructorPage = (Button)findViewById(R.id.viewForInstructorPage);
         assignForInstructorPage = (Button)findViewById(R.id.assignForInstructorPage);

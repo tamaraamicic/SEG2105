@@ -21,6 +21,7 @@ public class RegisterUser extends AppCompatActivity {
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Registration Page");
         setContentView(R.layout.register_page);
         MyDBHandler myDBHandler = new MyDBHandler(this);
 

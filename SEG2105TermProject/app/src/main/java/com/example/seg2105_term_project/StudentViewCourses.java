@@ -10,6 +10,7 @@ public class StudentViewCourses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_view_courses);
+        getSupportActionBar().setTitle("View Courses");
 
         MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
 

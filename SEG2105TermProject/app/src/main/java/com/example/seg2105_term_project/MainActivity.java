@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setTitle("Login Page");
 
         loginButton = (Button)(findViewById(R.id.signInButton));
         registerButton = (Button)(findViewById(R.id.registerButton));

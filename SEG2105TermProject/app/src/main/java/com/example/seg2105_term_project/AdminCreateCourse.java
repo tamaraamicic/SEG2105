@@ -18,6 +18,8 @@ public class AdminCreateCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_create_course);
+        getSupportActionBar().setTitle("Course Creation");
+        
 
         inputNameForCreate = (TextInputEditText) (findViewById(R.id.inputNameForCreate));
         inputCodeForCreate = (TextInputEditText) (findViewById(R.id.inputCodeForCreate));

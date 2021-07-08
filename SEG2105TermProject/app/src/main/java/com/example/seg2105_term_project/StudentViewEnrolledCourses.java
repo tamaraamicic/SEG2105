@@ -11,6 +11,8 @@ public class StudentViewEnrolledCourses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_view_enrolled_courses);
 
+        getSupportActionBar().setTitle("View Enrolled Courses");
+
         MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
 
         TextView entireView = (TextView) findViewById(R.id.studentViewEnrolledCoursesText);

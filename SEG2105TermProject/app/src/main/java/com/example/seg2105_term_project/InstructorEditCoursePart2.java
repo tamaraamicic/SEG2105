@@ -50,6 +50,7 @@ public class InstructorEditCoursePart2 extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_edit_course_part2);
+        getSupportActionBar().setTitle("Course Modification");
 
         TimeInput1 = findViewById(R.id.TimeInput1Edit);
         TimeInput2 = findViewById(R.id.TimeInput2Edit);

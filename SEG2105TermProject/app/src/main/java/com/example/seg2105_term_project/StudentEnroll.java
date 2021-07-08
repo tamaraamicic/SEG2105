@@ -24,6 +24,8 @@ public class StudentEnroll extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_enroll);
 
+        getSupportActionBar().setTitle("Course Enrollment");
+
         inputNameForEnroll = (TextInputEditText) (findViewById(R.id.inputNameForEnroll));
         inputCodeForEnroll = (TextInputEditText) (findViewById(R.id.inputCodeForEnroll));
         inputDateForEnroll = (TextInputEditText) (findViewById(R.id.inputDateForEnroll));

@@ -21,6 +21,7 @@ public class InstructorAssignCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course);
+        getSupportActionBar().setTitle("Course Assignment");
 
         inputNameForAssign = (TextInputEditText) (findViewById(R.id.inputNameForAssign));
         inputCodeForAssign = (TextInputEditText) (findViewById(R.id.inputCodeForAssign));
