@@ -1,6 +1,7 @@
 package com.example.seg2105_term_project;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.ArrayList;
 
 public class StudentEnroll extends AppCompatActivity {
 
@@ -50,12 +53,39 @@ public class StudentEnroll extends AppCompatActivity {
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     } else {
+                        boolean flag = false;
+                        Cursor cursor = myDBHandlerCourses.viewData();
+                        while (cursor.moveToNext()) {
+                            Course course = myDBHandlerCourses.findCourse(cursor.getString(1),cursor.getString(2));
+                            if(course.hasStudent(CurrentUser.getUsername())){
+                                if(!course.getTime1().equals("") && !course.getTime2().equals("")){
+                                    if(course.getDate1().equals(course.getDate1())){
+                                        if(course.getTime1().equals(course.getTime1())){
+                                            flag = true;
+                                            break;
+                                        }
+                                    }else if(course.getDate2().equals(course.getDate2())){
+                                        if(course.getTime2().equals(course.getTime2())){
+                                            flag = true;
+                                            break;
+                                        }
+                                    }
+                            }
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
-                        builder.setMessage("This course is open! You may enroll yourself in it").setTitle("Notice");
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                        enrollButtonForEnroll.setEnabled(true);
+                        }
+                        }
+                        if(flag){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                            builder.setMessage("This course timings interferes with your other courses!").setTitle("Warning");
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                            builder.setMessage("This course is open! You may enroll yourself in it").setTitle("Notice");
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                            enrollButtonForEnroll.setEnabled(true);
+                        }
                     }
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);

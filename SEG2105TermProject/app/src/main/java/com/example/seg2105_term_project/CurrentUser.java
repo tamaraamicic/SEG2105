@@ -1,10 +1,11 @@
 package com.example.seg2105_term_project;
 
+import java.util.ArrayList;
+
 public class CurrentUser{
      private static String userName;
      private static String role;
      private static String password;
-
      public static void setUsername(String user) {
           userName = user;
      }
@@ -28,4 +29,5 @@ public class CurrentUser{
      public static String getRole() {
           return role;
      }
+
 }
