@@ -58,6 +58,7 @@ public class InstructorAssignCoursePart2 extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_assign_course_part2);
+        getSupportActionBar().setTitle("Course Assignment");
 
         DayInput1 = findViewById(R.id.DayInput1);
         DayInput2 = findViewById(R.id.DayInput2);

@@ -20,6 +20,7 @@ public class AdminDeleteAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_delete_account);
+        getSupportActionBar().setTitle("Account Management");
 
         myDBHandler = new MyDBHandler(this);
 

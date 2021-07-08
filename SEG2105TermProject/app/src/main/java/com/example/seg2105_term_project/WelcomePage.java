@@ -16,6 +16,8 @@ public class WelcomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
 
+        getSupportActionBar().setTitle("Welcome Page");
+
         continueButton = (Button) findViewById(R.id.continueButton);
         welcomeMessage = (TextView) findViewById(R.id.welcomeMessage);
         welcomeMessage.setText("Welcome "+CurrentUser.getUsername()+", your role is "+ CurrentUser.getRole());

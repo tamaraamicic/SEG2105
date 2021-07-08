@@ -16,6 +16,7 @@ public class StudentPage extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_page);
+        getSupportActionBar().setTitle("Student Activity");
 
         studentViewCourses = findViewById(R.id.studentViewCourses);
         viewEnrolledCoursesButton = findViewById(R.id.studentViewEnrolledCourses);

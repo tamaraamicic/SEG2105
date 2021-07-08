@@ -20,6 +20,7 @@ public class InstructorEditCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instructor_edit_course);
+        getSupportActionBar().setTitle("Course Modification");
 
         inputNameForInstructorEditCourse = (TextInputEditText) (findViewById(R.id.inputNameForInstructorEditCourse));
         inputCodeForInstructorEditCourse = (TextInputEditText) (findViewById(R.id.inputCodeForInstructorEditCourse));
