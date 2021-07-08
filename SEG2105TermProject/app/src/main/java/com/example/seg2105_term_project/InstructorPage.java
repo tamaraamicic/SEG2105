@@ -13,6 +13,7 @@ public class InstructorPage extends AppCompatActivity {
     Button assignForInstructorPage;
     Button unassignForInstructorPage;
     Button editForInstructorPage;
+    Button viewStudentsInstructorPage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class InstructorPage extends AppCompatActivity {
         assignForInstructorPage = (Button)findViewById(R.id.assignForInstructorPage);
         unassignForInstructorPage = (Button)findViewById(R.id.unassignForInstructorPage);
         editForInstructorPage = (Button)findViewById(R.id.editForInstructorPage);
+        viewStudentsInstructorPage = (Button)findViewById(R.id.viewStudentsInstructorPage);
 
         viewForInstructorPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,14 @@ public class InstructorPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), InstructorEditCourse.class);
+                startActivity(intent);
+            }
+        });
+
+        viewStudentsInstructorPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InstructorViewStudents.class);
                 startActivity(intent);
             }
         });
