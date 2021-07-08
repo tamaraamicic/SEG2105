@@ -6,10 +6,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class StudentViewCourses extends AppCompatActivity {
+public class StudentViewEnrolledCourses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_view_courses);
+        setContentView(R.layout.student_view_enrolled_courses);
 
         MyDBHandlerCourses myDBHandlerCourses = new MyDBHandlerCourses(this);
 

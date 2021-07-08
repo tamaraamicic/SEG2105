@@ -25,10 +25,18 @@ public class StudentPage extends AppCompatActivity {
         enrollButton = findViewById(R.id.studentEnrollCourse);
         unenrollButton = findViewById(R.id.studentUnenrollCourse);
 
-        viewEnrolledCoursesButton.setOnClickListener(new View.OnClickListener() {
+        studentViewCourses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StudentViewCourses.class);
+                startActivity(intent);
+            }
+        });
+
+        viewEnrolledCoursesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StudentViewEnrolledCourses.class);
                 startActivity(intent);
             }
         });
