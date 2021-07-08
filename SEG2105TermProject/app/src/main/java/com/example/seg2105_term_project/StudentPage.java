@@ -11,7 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StudentPage extends AppCompatActivity {
 
-    Button viewCoursesButton;
+    Button studentViewCourses;
+    Button viewEnrolledCoursesButton;
     Button enrollButton;
     Button unenrollButton ;
     @Override
@@ -19,11 +20,12 @@ public class StudentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_page);
 
-        viewCoursesButton = findViewById(R.id.studentViewEnrolledCourses);
+        studentViewCourses = findViewById(R.id.studentViewCourses);
+        viewEnrolledCoursesButton = findViewById(R.id.studentViewEnrolledCourses);
         enrollButton = findViewById(R.id.studentEnrollCourse);
         unenrollButton = findViewById(R.id.studentUnenrollCourse);
 
-        viewCoursesButton.setOnClickListener(new View.OnClickListener() {
+        viewEnrolledCoursesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AdminCreateCourse.class);
