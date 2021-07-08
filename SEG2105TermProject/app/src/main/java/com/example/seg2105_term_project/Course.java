@@ -14,7 +14,7 @@ public class Course {
     private String time2;
     private int capacity;
     private String description;
-    ArrayList<String> students;
+    String students;
     Course(String name, String code) {
         this.name = name;
         this.code = code;
@@ -25,7 +25,7 @@ public class Course {
         this.capacity = 0;
         this.description = "";
         this.instructor = "";
-        students = new ArrayList<String>();
+        students = "";
     }
 
     public void setInstructor(String instructor){
@@ -104,12 +104,33 @@ public class Course {
     }
 
     public void addStudent(String studentName){
-        students.add(studentName);
+        students+=studentName+",";
     }
     public void removeStudent(String studentName){
-        students.remove(studentName);
+        String[] temp = students.split(",");
+        students = "";
+        for (int i = 0; i < temp.length; i++){
+            if(!temp[i].equals(studentName)){
+                students+=temp[i]+",";
+            }
+        }
     }
-    public ArrayList<String> getStudents(){
+    public String getStudents(){
         return this.students;
+    }
+
+    //USE ONLY FOR MyDBHandlerCourses.java
+    public void setStudents(String allStudents){
+        this.students = allStudents;
+    }
+
+    public boolean hasStudent(String studentName){
+        String[] temp = students.split(",");
+        for (int i = 0; i < temp.length; i++){
+            if(temp[i].equals(studentName)){
+                return true;
+            }
+        }
+        return false;
     }
 }

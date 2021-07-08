@@ -28,7 +28,7 @@ public class StudentPage extends AppCompatActivity {
         viewEnrolledCoursesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AdminCreateCourse.class);
+                Intent intent = new Intent(getApplicationContext(), StudentViewCourses.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class StudentPage extends AppCompatActivity {
         enrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), .class);
+                Intent intent = new Intent(getApplicationContext(), StudentEnroll.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class StudentPage extends AppCompatActivity {
         unenrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AdminCreateCourse.class);
+                Intent intent = new Intent(getApplicationContext(), StudentUnenroll.class);
                 startActivity(intent);
             }
         });

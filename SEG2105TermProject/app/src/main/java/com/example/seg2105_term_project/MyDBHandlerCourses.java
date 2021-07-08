@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MyDBHandlerCourses extends SQLiteOpenHelper {
     //defining the schema
     private static final int DATABASE_VERSION = 1;
@@ -22,6 +24,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
     private static final String COLUMN_TIME2 = "time2";
     private static final String COLUMN_CAPACITY = "capacity";
     private static final String COLUMN_DESCRIPTION = "description";
+    private static final String COLUMN_STUDENTS = "students";
     //constructor
     public MyDBHandlerCourses(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +45,8 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
                 COLUMN_TIME1 + " TEXT, " +
                 COLUMN_TIME2 + " TEXT, " +
                 COLUMN_CAPACITY + " INTEGER, " +
-                COLUMN_DESCRIPTION + " TEXT" + ")";
+                COLUMN_DESCRIPTION + " TEXT, " +
+                COLUMN_STUDENTS + " TEXT" + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
@@ -69,6 +73,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
         values.put(COLUMN_TIME2, course.getTime2());
         values.put(COLUMN_CAPACITY, course.getCapacity());
         values.put(COLUMN_DESCRIPTION, course.getDescription());
+        values.put(COLUMN_STUDENTS, course.getStudents());
         // insert into table and close
         db.insert(TABLE_COURSES, null, values);
         db.close();
@@ -102,7 +107,7 @@ public class MyDBHandlerCourses extends SQLiteOpenHelper {
                 course.setTime2(cursor.getString(7));
                 course.setCapacity(cursor.getInt(8));
                 course.setDescription(cursor.getString(9));
-
+                course.setStudents(cursor.getString(10));
                 cursor.close();
             } else {
                 course = null;
