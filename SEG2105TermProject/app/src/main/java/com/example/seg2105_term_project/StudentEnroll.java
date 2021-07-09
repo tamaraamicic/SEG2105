@@ -35,17 +35,35 @@ public class StudentEnroll extends AppCompatActivity {
         searchButtonForEnroll = (Button) (findViewById(R.id.searchButtonForEnroll));
         enrollButtonForEnroll = (Button) (findViewById(R.id.enrollButtonForEnroll));
         myDBHandlerCourses = new MyDBHandlerCourses(this);
+        enrollButtonForEnroll.setEnabled(false);
         searchButtonForEnroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String name = inputNameForEnroll.getText().toString();
                 String code = inputCodeForEnroll.getText().toString();
-                course = myDBHandlerCourses.findCourse(name, code);
+                String date = inputDateForEnroll.getText().toString();
+                if(!date.equals("") && name.equals("") && code.equals("")){
+                    Cursor cursor = myDBHandlerCourses.viewData();
+                    while (cursor.moveToNext()) {
+                        course = myDBHandlerCourses.findCourse(cursor.getString(1), cursor.getString(2));
+                        if (course.getDate1().equals(date) || course.getDate2().equals(date)) {
+                            inputCodeForEnroll.setText(course.getCourseCode());
+                            inputNameForEnroll.setText(course.getCourseName());
+                            break;
+                        }
+
+                    }
+                }else{
+                    course = myDBHandlerCourses.findCourse(name, code);
+                }
                 if (course != null) {
-                    if (code.equals("")) {
+                    if (!name.equals("") && code.equals("") && date.equals("")) {
                         inputCodeForEnroll.setText(course.getCourseCode());
-                    } else if (name.equals("")) {
+                        inputDateForEnroll.setText(course.getDate1());
+                    } else if (!code.equals("") && name.equals("") && date.equals("")) {
                         inputNameForEnroll.setText(course.getCourseName());
+                        inputDateForEnroll.setText(course.getDate1());
                     }
                     if (course.hasStudent(CurrentUser.getUsername())){
                         AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
@@ -70,9 +88,9 @@ public class StudentEnroll extends AppCompatActivity {
                                             break;
                                         }
                                     }
-                            }
+                                }
 
-                        }
+                            }
                         }
                         if(flag){
                             AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
@@ -92,24 +110,32 @@ public class StudentEnroll extends AppCompatActivity {
                     toast.show();
                 }
             }
-
         });
 
         enrollButtonForEnroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
-                course.addStudent(CurrentUser.getUsername());
-                addCourseAgain(course);
-                builder.setMessage("Successfully enrolled!").setTitle("Done");
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                if (course.hasStudent(CurrentUser.getUsername())){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                    builder.setMessage("You are already enrolled in this course!").setTitle("Notice");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                    course.addStudent(CurrentUser.getUsername());
+                    addCourseAgain(course);
+                    builder.setMessage("Successfully enrolled!").setTitle("Done");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+
             }
         });
 
 
     }
     public Course addCourseAgain(Course course){
+        //course.removeAllStudents();
         String courseName = course.getCourseName();
         String courseCode = course.getCourseCode();
         String allStudents = course.getStudents();

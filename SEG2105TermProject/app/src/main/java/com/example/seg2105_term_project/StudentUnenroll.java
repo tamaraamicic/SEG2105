@@ -1,5 +1,6 @@
 package com.example.seg2105_term_project;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,31 +36,50 @@ public class StudentUnenroll extends AppCompatActivity {
             public void onClick(View v) {
                 String name = inputNameForUnenroll.getText().toString();
                 String code = inputCodeForUnenroll.getText().toString();
-                course = myDBHandlerCourses.findCourse(name, code);
-                if (course != null) {
-                    if (code.equals("")) {
-                        inputCodeForUnenroll.setText(course.getCourseCode());
-                    } else if (name.equals("")) {
-                        inputNameForUnenroll.setText(course.getCourseName());
-                    }
-                    if (course.hasStudent(CurrentUser.getUsername())){
-                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentUnenroll.this);
-                        builder.setMessage("You are enrolled in this course. Press the unenroll button.").setTitle("Notice");
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                    } else {
+                String date = inputDateForUnenroll.getText().toString();
+                if (!date.equals("") && name.equals("") && code.equals("")) {
+                    Cursor cursor = myDBHandlerCourses.viewData();
+                    while (cursor.moveToNext()) {
+                        course = myDBHandlerCourses.findCourse(cursor.getString(1), cursor.getString(2));
+                        if (course.getDate1().equals(date) || course.getDate2().equals(date)) {
+                            inputCodeForUnenroll.setText(course.getCourseCode());
+                            inputNameForUnenroll.setText(course.getCourseName());
+                            break;
+                        }
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentUnenroll.this);
-                        builder.setMessage("You are not enrolled in this course").setTitle("Notice");
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                        unenrollButtonForUnenroll.setEnabled(true);
                     }
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
-                    toast.show();
+                    course = myDBHandlerCourses.findCourse(name, code);
                 }
-            }
+                    if (course != null) {
+                        if (code.equals("")) {
+                            inputCodeForUnenroll.setText(course.getCourseCode());
+                            inputDateForUnenroll.setText(course.getDate1());
+
+                        } else if (name.equals("")) {
+                            inputNameForUnenroll.setText(course.getCourseName());
+                            inputDateForUnenroll.setText(course.getDate1());
+
+                        }
+                        if (course.hasStudent(CurrentUser.getUsername())) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(StudentUnenroll.this);
+                            builder.setMessage("You are enrolled in this course. Press the unenroll button.").setTitle("Notice");
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        } else {
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(StudentUnenroll.this);
+                            builder.setMessage("You are not enrolled in this course").setTitle("Notice");
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                            unenrollButtonForUnenroll.setEnabled(true);
+                        }
+                    } else {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Course not found. Please retry.", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                }
+
 
         });
 
