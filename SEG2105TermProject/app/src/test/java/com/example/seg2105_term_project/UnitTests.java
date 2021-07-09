@@ -41,4 +41,32 @@ public class UnitTests {
         assertEquals(user.getPassword(), "teodora123");
     }
 
+    @Test
+    public void getStudentsNoStudents() {
+        Course course = new Course("Data Structures and Algorithms", "CSI2110");
+        assertEquals(course.getStudents(), "");
+    }
+
+    @Test
+    public void addStudentsIsCorrect() {
+        Course course = new Course("History", "HIS101");
+        course.addStudent("Student1");
+        course.addStudent("Student2");
+        assertEquals(course.getStudents(), "Student1, Student2, ");
+    }
+
+    @Test
+    public void removeStudentIsCorrect() {
+
+    }
+
+    @Test
+    public void setStudentIsCorrect() {
+
+    }
+
+    @Test void hasStudentIsCorrect() {
+
+    }
+
 }
