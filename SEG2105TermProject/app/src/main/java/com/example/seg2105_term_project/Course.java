@@ -104,19 +104,24 @@ public class Course {
     }
 
     public void addStudent(String studentName){
-        students+=studentName+",";
+        students+=studentName+", ";
     }
     public void removeStudent(String studentName){
-        String[] temp = students.split(",");
+        String[] temp = students.split(", ");
         students = "";
         for (int i = 0; i < temp.length; i++){
             if(!temp[i].equals(studentName)){
-                students+=temp[i]+",";
+                students+=temp[i]+", ";
             }
         }
     }
-    public String getStudents(){
-        return this.students;
+    public String getStudents() {
+        if (students.length() != 0) {
+            //return students.substring(0, students.length() - 2); // last comma and space isn't printed
+            return students.replaceAll(",$", "").trim();
+        } else {
+            return this.students;
+        }
     }
 
     //USE ONLY FOR MyDBHandlerCourses.java
@@ -125,7 +130,7 @@ public class Course {
     }
 
     public boolean hasStudent(String studentName){
-        String[] temp = students.split(",");
+        String[] temp = students.split(", ");
         for (int i = 0; i < temp.length; i++){
             if(temp[i].equals(studentName)){
                 return true;
