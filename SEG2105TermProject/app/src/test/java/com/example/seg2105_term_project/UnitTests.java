@@ -57,7 +57,9 @@ public class UnitTests {
 
     @Test
     public void removeStudentIsCorrect() {
-
+        Course course = new Course("Psychology", "PSY101");
+        course.removeStudent("Student1");
+        assertEquals(course.getStudents(), "");
     }
 
     @Test
