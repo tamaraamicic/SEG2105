@@ -31,7 +31,7 @@ public class InstructorViewStudentsPart2 extends AppCompatActivity {
             stringBuilder.delete(0, "No students in this course.".length());
             stringBuilder.append("Students: ");
             stringBuilder.append("\n");
-            stringBuilder.append(course.getStudents());
+            stringBuilder.append(course.getStudents().replaceAll(",$",""));
         }
 
         instructorViewStudentsTextView.setText(stringBuilder);

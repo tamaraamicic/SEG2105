@@ -61,13 +61,13 @@ public class InstructorUnassignCourse extends AppCompatActivity {
 
         unassignButtonForUnassign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String name = inputNameForUnassign.getText().toString();
-                String code = inputCodeForUnassign.getText().toString();
-
-                handlerCourses.deleteCourse(name,code);
-                Course newCourse = new Course(name,code);
-                handlerCourses.addCourse(newCourse);
-                course = newCourse;
+                course.setInstructor("");
+                course.setDescription("");
+                course.setCapacity(0);
+                course.setDate1("");
+                course.setDate2("");
+                course.setTime1("");
+                course.setTime2("");
 
                 Toast toast = Toast.makeText(getApplicationContext(), "Successfully unassigned.", Toast.LENGTH_LONG);
                 toast.show();

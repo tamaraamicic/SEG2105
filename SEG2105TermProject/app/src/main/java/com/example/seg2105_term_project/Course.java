@@ -14,7 +14,7 @@ public class Course {
     private String time2;
     private int capacity;
     private String description;
-    String students;
+    private String students;
     Course(String name, String code) {
         this.name = name;
         this.code = code;
@@ -25,7 +25,7 @@ public class Course {
         this.capacity = 0;
         this.description = "";
         this.instructor = "";
-        students = "";
+        this.students = "";
     }
 
     public void setInstructor(String instructor){
@@ -104,33 +104,44 @@ public class Course {
     }
 
     public void addStudent(String studentName){
-        students+=studentName+",";
+        students+=" "+studentName+", ";
     }
     public void removeStudent(String studentName){
-        String[] temp = students.split(",");
+
+
+        String[] temp = students.split(", ");
         students = "";
         for (int i = 0; i < temp.length; i++){
-            if(!temp[i].equals(studentName)){
-                students+=temp[i]+",";
+            if(!temp[i].replace(",","").equals(studentName)){
+                students+=temp[i].replace(",","")+", ";
             }
         }
+
+
     }
     public String getStudents(){
-        return this.students;
+        return this.students.trim();
     }
 
-    //USE ONLY FOR MyDBHandlerCourses.java
+    //USE ONLY FOR DEBUGGING
     public void setStudents(String allStudents){
         this.students = allStudents;
     }
-
+    //USE ONLY FOR DEBUGGING
+    public void removeAllStudents(){
+        students = "";
+    }
     public boolean hasStudent(String studentName){
-        String[] temp = students.split(",");
-        for (int i = 0; i < temp.length; i++){
-            if(temp[i].equals(studentName)){
-                return true;
+        if(students.length()!=0){
+            String[] temp = students.split(", ");
+            for (int i = 0; i < temp.length; i++){
+                if(temp[i].replace(",","").equals(studentName)){
+
+                    return true;
+                }
             }
         }
+
         return false;
     }
 }
