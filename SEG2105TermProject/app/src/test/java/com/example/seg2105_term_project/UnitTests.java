@@ -52,7 +52,7 @@ public class UnitTests {
         Course course = new Course("History", "HIS101");
         course.addStudent("Student1");
         course.addStudent("Student2");
-        assertEquals(course.getStudents(), "Student1, Student2, ");
+        assertEquals(course.getStudents(), "Student1, Student2,");
     }
 
     @Test
@@ -65,11 +65,15 @@ public class UnitTests {
 
     @Test
     public void setStudentIsCorrect() {
+        Course course = new Course("Computer Science","ITI 1121");
+        course.setStudents("Student1");
+        assertEquals(course.getStudents(), "Student1");
 
     }
 
-    @Test void hasStudentIsCorrect() {
-        Course course = new Course("Software Engineering", " SEG2105");
+    @Test
+    public void hasStudentIsCorrect() {
+        Course course = new Course("Software Engineering","SEG 2105");
         course.addStudent("Student1");
         assertTrue(course.hasStudent("Student1"));
     }

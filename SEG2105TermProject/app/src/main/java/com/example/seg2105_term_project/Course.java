@@ -104,7 +104,13 @@ public class Course {
     }
 
     public void addStudent(String studentName){
-        students+=" "+studentName+", ";
+        if(students.length()!=0){
+            students+=" "+studentName+", ";
+
+        }else{
+            students+=studentName+",";
+
+        }
     }
     public void removeStudent(String studentName){
 
@@ -135,7 +141,7 @@ public class Course {
         if(students.length()!=0){
             String[] temp = students.split(", ");
             for (int i = 0; i < temp.length; i++){
-                if(temp[i].replace(",","").equals(studentName)){
+                if(temp[i].replace(",","").trim().equals(studentName)){
 
                     return true;
                 }
