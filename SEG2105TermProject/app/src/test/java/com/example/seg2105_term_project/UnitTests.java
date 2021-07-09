@@ -69,7 +69,9 @@ public class UnitTests {
     }
 
     @Test void hasStudentIsCorrect() {
-
+        Course course = new Course("Software Engineering", " SEG2105");
+        course.addStudent("Student1");
+        assertTrue(course.hasStudent("Student1"));
     }
 
 }
