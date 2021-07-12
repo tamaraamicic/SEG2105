@@ -12,7 +12,8 @@ public class VerifyLogin extends AppCompatActivity {
     }
 
     public boolean verified(MyDBHandler myDBHandler){
-        if(myDBHandler.findProduct(this.user)!=null){
+        User newUser = myDBHandler.findProduct(this.user);
+        if(newUser!=null && newUser.getPassword().equals(this.password)){
             return true;
         }else{
             return false;
