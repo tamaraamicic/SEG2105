@@ -70,6 +70,11 @@ public class StudentEnroll extends AppCompatActivity {
                         builder.setMessage("You are already enrolled in this course!").setTitle("Notice");
                         AlertDialog dialog = builder.create();
                         dialog.show();
+                    }else if(getNumStudents()>course.getCapacity()){ //check if capacity of course has been reached
+                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentEnroll.this);
+                        builder.setMessage("This course has reached its capacity!").setTitle("Error");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     } else {
                         boolean flag = false;
                         Cursor cursor = myDBHandlerCourses.viewData();
@@ -153,5 +158,18 @@ public class StudentEnroll extends AppCompatActivity {
         newCourse.setStudents(allStudents);
         myDBHandlerCourses.addCourse(newCourse);
         return newCourse;
+    }
+
+    public int getNumStudents(){ //keeps track of number of students by counting commas in getStudents()
+        String mySTR = course.getStudents();
+        int count = 0;
+        if(mySTR != ""){ //checks if string has at least 1 student
+            count = 1;
+        }
+        for( int i= 0; i < mySTR.length(); i++){
+            if(mySTR.charAt(i) == ',')
+                count++;
+        }
+        return count;
     }
 }
